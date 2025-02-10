@@ -1,0 +1,77 @@
+@use "variables" as *;
+
+body{
+    margin: 0;
+    background-color: $fond;
+    color: $texte;
+    font-family: 'Bion', sans-serif;
+}
+
+.container{
+    margin: auto;
+}
+
+
+
+
+
+@media screen and (max-width: 576px){
+    .container{
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 576px){
+    .container{
+        width: 540px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .container{
+        width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .container{
+        width: 1140px;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .container{
+        width: 1320px;
+    }
+}
+
+
+.light {
+    position: fixed;
+    width: 500px; 
+    height: 500px;
+    background: radial-gradient(circle, #0b0025 20%, #0b002500 90%);
+    border-radius: 50%;
+    pointer-events: none; 
+    filter: blur(100px); 
+    transition: transform 0.1s ease-out; 
+    mix-blend-mode: screen;
+    z-index: 0;
+}
+
+
+.motifs-fond{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/img/motifs-fond.svg');
+  }

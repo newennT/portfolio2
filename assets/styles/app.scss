@@ -1,0 +1,28 @@
+
+
+@use '../sass/base/variables' as *;
+@use '../sass/base/typography';
+@use '../sass/base/base';
+
+@use '../sass/components/_buttons.scss';
+@use '../sass/components/anim01';
+@use '../sass/components/anim02';
+
+@use '../sass/layouts/_header.scss';
+@use '../sass/layouts/_footer.scss';
+
+@use '../sass/pages/_home.scss';
+
+@font-face {
+    font-family: "Bion";
+    src: url("/fonts/Bion-Book.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Bion-bold";
+    src: url("/fonts/Bion-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
