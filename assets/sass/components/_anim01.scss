@@ -7,3 +7,10 @@
     transform: rotate(-90deg);
     z-index: 10;
   }
+
+  @media screen and (max-width: 992px){
+    #anim01{
+      width: 78vw;
+      top: 60%
+    }
+  }

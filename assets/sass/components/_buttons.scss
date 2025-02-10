@@ -170,3 +170,25 @@ a{
         border: #ffffff solid 2px;
     }
 }
+
+
+
+@media screen and (max-width: 992px){
+    @keyframes float1 {
+        0% {
+            transform: translateX(-5px) translateY(-10px);
+        }
+        25% {
+            transform: translateX(10px) translateY(7px);
+        }
+        50% {
+            transform: translateX(-7px) translateY(13px);
+        }
+        75% {
+            transform: translateX(13px) translateY(-3px);
+        }
+        100% {
+            transform: translateX(-17px) translateY(-10px);
+        }
+      }
+}

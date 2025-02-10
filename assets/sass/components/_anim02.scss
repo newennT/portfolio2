@@ -5,3 +5,11 @@
     right: 20%;
     z-index: 10;
   }
+
+  @media screen and (max-width: 992px){
+    #anim02{
+      width: 22vw;
+      top: 5%;
+      right: 10%;
+    }
+  }
