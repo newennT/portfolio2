@@ -1,38 +1,50 @@
+@use "../base/variables" as *;
+
 .section01{
-    padding-left: 45%;
-    padding-top: 37vh;
-    padding-bottom: 25vh;
-    h1{
-        font-size: 5vw;
-        margin-right: -100px;
-        margin-bottom: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    .image{
         position: relative;
-        z-index: 10000;
+        z-index: 10055;
+        width: 50%;
+        background-color: $bleu;
     }
-    h2{
-    font-size: 3vw;
-    margin-top: 0;
-    z-index: 10001;
+    .texte{
+        width: 50%;
+        margin-top: 50px;
+        position: relative;
+        h1{
+            font-size: 70px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 10000;
+            margin-right: -100px;
+            margin-left: 40px;
+        }
+        h2{
+            font-size: 40px;
+            margin-top: 0;
+            z-index: 10001;
+        }
+        .paragraphe{
+            position: absolute;
+            margin-left: 40px;
+            z-index: 10002;
+            bottom: 10px;
+        }
     }
 }
 
 @media screen and (max-width: 992px){
     .section01{
-        padding-left: 0;
-        padding-top: 17vh;
-        padding-bottom: 25vh;
-        h1{
-            font-size: 7vw;
-        }
-        h2{
-            font-size: 4vw;
-        }
+        flex-direction: column;
     }
 }
 
 .line{
 display: inline-block;
-padding: 0px 50px 0px 0px;
+padding: 0px 50px 0px 40px;
 position: relative;
 margin-top: 5px;
 z-index: 10002;
@@ -46,7 +58,6 @@ bottom: 0;
 width: 100%;
 height: 67%;
 background: #424afa; 
-border-radius: 5px;
 z-index: -1;
 transform: scaleX(0); 
 transform-origin: left;
@@ -63,28 +74,35 @@ transform: scaleX(1);
 .section02{
     position: relative;
     z-index: 10004;
-    padding-top: 25vh;
-    /* background-color: aqua; */
-    .texte{
-        width: 52%;
-        background: linear-gradient(180deg, #090020 60%, #09002000 80%);
-        padding-top: 50px;
-        padding-left: 5%;
-        border-radius: 0 200px 0 0;
-        padding-bottom: 40vh;
-        p{
-            width: 78%;
+    display: flex;
+    justify-content: space-between;
+    .image{
+        background-color: #424afa;
+        width: 50%;
+        .projets{
+            margin-top: 250px;
+            margin-left: 100px;
+            .projet{
+                width: 150%;
+                min-height: 400px;
+                height: 50vh;
+                object-fit: cover;
+                overflow: hidden;
+                margin-top: 50px;
+            }
         }
     }
-    .boutons-grp{
-        display: flex;
-        margin-left: 10%;
+    .texte{
+        width: 50%;
+        .separateur{
+            margin-top: 100px;
+            margin-bottom: 50px;
+            margin-right: -30%;
+        }
+        
     }
-    p{
-        position: relative;
-        z-index: 10000;
-        font-size: 22px;
-    }
+
+
 }
 
 
@@ -104,103 +122,9 @@ transform: scaleX(1);
 }
 
 
+
 // Section03
 .section03{
-    position: relative;
-    z-index: 10003;
-    margin-top: -100px;
-    h2{
-        text-align: center;
-        font-size: 80px;
-        font-family: 'Bion-bold', sans-serif;
-        margin-top: 20px;
-        margin-bottom: 80px;
-    }
-    h3{
-        font-size: 50px;
-        font-family: 'Bion-bold', sans-serif;
-    }
-    p{
-        font-size: 18px;
-    }
-}
-
-.service{
-    display: flex;
-    justify-content: space-between;
-    min-height: 500px;
-    height: 85vh;
-    background-color: #090020;
-    .texte{
-        width: 40%;
-        padding-left: 100px;
-        padding-top: 75px;
-    }
-    .image{
-        width: 50%;
-        object-fit: cover;
-        overflow: hidden;
-        padding-bottom: 0;
-        img{
-            height: 100%;
-        }
-    }
-}
-
-.wrapper{
-    height: 90vh;
-  }
-  
-  .list{
-    position: relative;
-  }
-  
-  .item{
-    position: absolute;
-    inset: 0%;
-  }
-
-  @media screen and (max-width: 992px){
-    .section03{
-        margin-top: 100px;
-        h2{
-            font-size: 60px;
-            margin-bottom: 40px;
-        }
-        h3{
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-    }
-    .service{
-        flex-direction: column-reverse;
-        height: 90vh;
-        padding-bottom: 80px;
-        .texte{
-            width: 80%;
-            padding-left: 50px;
-        }
-        .image{
-            width: 80%;
-        }
-    }
-  }
-
-
-// Section04
-.section04{
-    position: relative;
-    z-index: 10004;
-    h2{
-        font-size: 80px;
-        text-align: center;
-        font-family: 'Bion-bold', sans-serif;
-    }
-}
-
-
-// Section05
-.section05{
     position: relative;
     z-index: 10005;
     display: flex;
@@ -226,7 +150,7 @@ transform: scaleX(1);
   }
 
   @media screen and (max-width: 992px){
-    .section05{
+    .section03{
         flex-direction: column;
         margin-top: 80px;
         .image{

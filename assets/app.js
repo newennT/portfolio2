@@ -5,7 +5,6 @@
  * which should already be in your base.html.twig.
  */
 import './styles/app.scss';
-import './js/anim01.js';
 import './js/anim02.js';
 import './js/body.js';
 import './js/boutons.js';
