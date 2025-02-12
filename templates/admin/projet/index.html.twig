@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
 {% block title %}Projet index{% endblock %}
 
@@ -37,5 +37,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_projet_new') }}">Create new</a>
+    <button>
+        <a href="{{ path('app_projet_new') }}">Create new</a>
+    </button>
 {% endblock %}
