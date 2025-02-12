@@ -50,7 +50,7 @@ function initScroll(section, items, direction) {
     });
     items.forEach((item, index) => {
       tl.to(item, {
-        scale: 1.01,
+        scale: 1.2,
         borderRadius: "10px",
       });
   

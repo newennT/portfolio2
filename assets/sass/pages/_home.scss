@@ -84,26 +84,13 @@ transform: scaleX(1);
             margin-left: 100px;
             width: 200%;
             .projet{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                .image-projet{
-                    width: 80%;
+                padding: 20px;
+                background-color: $fond;
+                .image-projet a{
                     min-height: 400px;
                     height: 85vh;
                     object-fit: cover;
                     overflow: hidden;
-                }
-                .description{
-                    width: 50%;
-                    padding-left: 40px;
-                    padding-right: 200px;
-                    background-color: $fond;
-                    h3{
-                        font-size: 40px;
-                        font-family: 'Bion-bold', sans-serif;
-                        margin-bottom: 20px;
-                    }
                 }
             }
         }
@@ -134,6 +121,12 @@ transform: scaleX(1);
 
 
 
+.separateur2{
+    position: relative;
+    z-index: 10005;
+    width: 50%;
+}
+
 
 // Section03
 .section03{
@@ -142,13 +135,13 @@ transform: scaleX(1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 100px;
     .image{
         width: 50%;
         object-fit: cover;
-        overflow: hidden;
       }
       .texte{
-        width: 40%;
+        width: 45%;
       }
       h2{
         font-size: 80px;
