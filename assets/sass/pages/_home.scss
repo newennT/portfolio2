@@ -82,13 +82,29 @@ transform: scaleX(1);
         .projets{
             margin-top: 250px;
             margin-left: 100px;
+            width: 200%;
             .projet{
-                width: 150%;
-                min-height: 400px;
-                height: 50vh;
-                object-fit: cover;
-                overflow: hidden;
-                margin-top: 50px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .image-projet{
+                    width: 80%;
+                    min-height: 400px;
+                    height: 85vh;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
+                .description{
+                    width: 50%;
+                    padding-left: 40px;
+                    padding-right: 200px;
+                    background-color: $fond;
+                    h3{
+                        font-size: 40px;
+                        font-family: 'Bion-bold', sans-serif;
+                        margin-bottom: 20px;
+                    }
+                }
             }
         }
     }
@@ -97,29 +113,25 @@ transform: scaleX(1);
         .separateur{
             margin-top: 100px;
             margin-bottom: 50px;
-            margin-right: -30%;
-        }
-        
-    }
-
-
-}
-
-
-@media screen and (max-width: 992px){
-    .section02{
-        .texte{
-            width: 80%;
-        }
-        .boutons-grp{
-            margin-left: 0;
-        }
-        p{
-            font-size: 18px;
-        }
-        
+            margin-right: -50%;
+            margin-left: -2px;
+        }       
     }
 }
+
+.wrapper{
+    height: 85vh;
+}
+
+.list{
+    position: relative;
+}
+
+.item{
+    position: absolute;
+    // inset: 0%;
+}
+
 
 
 
