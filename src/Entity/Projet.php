@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjetRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Projet
 {
     #[ORM\Id]
@@ -43,13 +44,17 @@ class Projet
     /**
      * @var Collection<int, Image>
      */
-    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'projet')]
+    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'projet', cascade: ['persist', 'remove'])]
     private Collection $images;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $lastUpdate = null;
 
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->lastUpdate = new \DateTime();
     }
 
     public function getId(): ?int
@@ -157,5 +162,25 @@ class Projet
         }
 
         return $this;
+    }
+
+    public function getLastUpdate(): ?\DateTimeInterface
+    {
+        return $this->lastUpdate;
+    }
+
+    public function setLastUpdate(\DateTimeInterface $lastUpdate): static
+    {
+        $this->lastUpdate = $lastUpdate;
+
+        return $this;
+    }
+
+    #[ORM\PreUpdate]
+    public function updateTimestamp(): void
+    {
+        if ($this->lastUpdate === null) {
+            $this->lastUpdate = new \DateTime();
+        }
     }
 }

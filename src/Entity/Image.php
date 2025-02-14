@@ -15,12 +15,10 @@ class Image
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $path = null;
 
     #[ORM\ManyToOne(inversedBy: 'images')]
-    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Projet $projet = null;
 
     public function getId(): ?int

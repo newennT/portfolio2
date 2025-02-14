@@ -1,11 +1,14 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}New Image{% endblock %}
+{% set action = app.current_route == 'app_image_new' ? 'Ajout' : 'Edition' %}
+
+{% block title %}{{ action }} d'une image{% endblock %}
 
 {% block body %}
-    <h1>Create new Image</h1>
+    <h1>{{ action }} d'une image</h1>
 
     {{ include('admin/image/_form.html.twig') }}
 
     <a href="{{ path('app_image_index') }}">back to list</a>
 {% endblock %}
+ 

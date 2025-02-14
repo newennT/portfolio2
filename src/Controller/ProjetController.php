@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/projet')]
 final class ProjetController extends AbstractController
@@ -23,17 +24,33 @@ final class ProjetController extends AbstractController
     }
 
     #[Route('/new', name: 'app_projet_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/{id}/edit', name: 'app_projet_edit', methods: ['GET', 'POST'])]
+    public function new(?Projet $projet, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $projet = new Projet();
+        $projet ??= new Projet();
         $form = $this->createForm(ProjetType::class, $projet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $cover = $form->get('cover')->getData();
+            if($cover){
+                $newImageName = uniqid().'.'.$cover->guessExtension();
+
+                try{
+                    $cover->move(
+                        $this->getParameter('upload_directory'),
+                        $newImageName
+                    );
+                    $projet->setCover($newImageName);
+                } catch (FileException $e){
+                    $this->addFlash('error', 'Une erreur est survenue');
+                }
+            }
+
             $entityManager->persist($projet);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_projet_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_projet_show', ['id' => $projet->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin/projet/new.html.twig', [
@@ -50,23 +67,7 @@ final class ProjetController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_projet_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Projet $projet, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(ProjetType::class, $projet);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_projet_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('admin/projet/edit.html.twig', [
-            'projet' => $projet,
-            'form' => $form,
-        ]);
-    }
+   
 
     #[Route('/{id}', name: 'app_projet_delete', methods: ['POST'])]
     public function delete(Request $request, Projet $projet, EntityManagerInterface $entityManager): Response
