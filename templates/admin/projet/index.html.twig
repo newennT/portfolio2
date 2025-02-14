@@ -24,10 +24,10 @@
                 <td>{{ projet.nom }}</td>
                 <td>{{ projet.slug }}</td>
                 <td>{{ projet.description }}</td>
-                <td>{{ projet.cover }}</td>
+                <td>{{ projet.cover }}<img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="100"></td>
                 <td>
                     {% for image in projet.images %}
-                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
+                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
                     {% else %}
                         <p>Aucune image</p>
                     {% endfor %}

@@ -23,6 +23,14 @@
             {{ form_widget(form.images) }}
         </div>
 
+        {% for image in form.images %}
+            {% if image.vars.data.path is not null %}
+                <div class="image-preview">
+                    <img src="{{ asset('uploads/' ~ image.vars.data.path) }}" alt="Image du projet" width="100">
+                </div>
+            {% endif %}
+        {% endfor %}
+
         <button type="submit">Enregistrer</button>
     {{ form_end(form) }}
 
@@ -37,16 +45,15 @@
             let imageContainer = document.querySelector('#projet_images');
             let addImageButton = document.createElement('button');
             addImageButton.textContent = "Ajouter une image";
-            addImageButton.type = "button"; // Empêcher la soumission accidentelle du formulaire
+            addImageButton.type = "button"; 
             imageContainer.appendChild(addImageButton);
 
             addImageButton.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                // Récupère l’index le plus élevé existant et ajoute +1
                 let existingIndexes = Array.from(document.querySelectorAll('#projet_images div'))
-                    .map(div => parseInt(div.dataset.index)) // Récupère les index existants
-                    .filter(num => !isNaN(num)); // Évite les valeurs NaN
+                    .map(div => parseInt(div.dataset.index))
+                    .filter(num => !isNaN(num));
                 
                 let newIndex = existingIndexes.length > 0 ? Math.max(...existingIndexes) + 1 : 0;
 
@@ -55,7 +62,7 @@
                 
                 let newDiv = document.createElement('div');
                 newDiv.innerHTML = newField;
-                newDiv.dataset.index = newIndex; // Stocke l’index pour éviter l'erreur
+                newDiv.dataset.index = newIndex; 
                 
                 imageContainer.appendChild(newDiv);
             });
