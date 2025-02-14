@@ -16,31 +16,37 @@ class ImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('path', FileType::class, [
+            ->add('file', FileType::class, [
+                'label' => 'Image',
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Sélectionner une image',
-                'attr' => [
-                    'accept' => 'image/png, image/jpeg, image/webp',
-                ],
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/webp',
-                        ],
-                        'mimeTypesMessage' => 'Format incorrect (jpeg, png ou webp seulement)',
-                    ]),
-                ],
             ])
-            ->add('projet', EntityType::class, [
-                'class' => Projet::class,
-                'choice_label' => 'id',
-                'placeholder' => '-- Projet --',
-                'required' => false,
-            ])
+
+            // ->add('path', FileType::class, [
+            //     'mapped' => false,
+            //     'required' => false,
+            //     'label' => 'Sélectionner une image',
+            //     'attr' => [
+            //         'accept' => 'image/png, image/jpeg, image/webp',
+            //     ],
+            //     'constraints' => [
+            //         new File([
+            //             'maxSize' => '2M',
+            //             'mimeTypes' => [
+            //                 'image/jpeg',
+            //                 'image/png',
+            //                 'image/webp',
+            //             ],
+            //             'mimeTypesMessage' => 'Format incorrect (jpeg, png ou webp seulement)',
+            //         ]),
+            //     ],
+            // ])
+            // ->add('projet', EntityType::class, [
+            //     'class' => Projet::class,
+            //     'choice_label' => 'id',
+            //     'placeholder' => '-- Projet --',
+            //     'required' => false,
+            // ])
         ;
     }
 
