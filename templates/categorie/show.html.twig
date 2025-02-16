@@ -1,1 +1,33 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}{{ categorie.nom }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="categorie-show">
+        <h1>{{ categorie.nom }}</h1>
+
+        <div class="projets">
+
+            {% for projet in categorie.projets %}
+            <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
+                <div class="projet">
+                    <div class="overlay">
+                        {{ projet.nom }}
+                    </div>
+                    
+                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
+                </div>
+            </a>
+            {% endfor %}
+            
+        </div>
+                   
+    </div>
+
+    <a href="{{ path('app_categorie_index') }}">Liste des catégories</a>
+    <a href="{{ path('app_projet_index') }}">Liste des projets</a>
+
+</div>
+
+{% endblock %}

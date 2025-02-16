@@ -1,0 +1,58 @@
+@use "../base/variables" as *;
+
+.categories-section{
+    position: relative;
+    z-index: 10006;
+}
+
+.categorie-show{
+    position: relative;
+    z-index: 10007;
+    .projets{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .projet{
+            position: relative;
+            object-fit: contain;
+            .overlay{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                background-color: #090020;
+                opacity: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                scale: 0;
+            }
+            img{
+                width: 100%;
+            }
+            &:hover .overlay{
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            
+        }
+    }
+}
+
+@media screen and (max-width: 992px){
+    .categorie-show{
+        .projets{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .categorie-show{
+        .projets{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
