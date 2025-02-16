@@ -22,7 +22,7 @@
         <button type="submit">Enregistrer</button>
     {{ form_end(form) }}
     
-    {% if app.current_route == 'app_projet_edit' %}
+    {% if app.current_route == 'app_admin_projet_edit' %}
         {% for image in images %}
             <div class="image-preview">
                 <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image du projet" width="100">
@@ -30,6 +30,6 @@
         {% endfor %}
     {% endif %}
 
-    <a href="{{ path('app_projet_index') }}">back to list</a>
+    <a href="{{ path('app_admin_projet_index') }}">back to list</a>
 
 {% endblock %}

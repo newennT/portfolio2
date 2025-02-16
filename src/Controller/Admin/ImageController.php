@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Image;
 use App\Form\ImageType;
@@ -13,10 +13,10 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[Route('/image')]
+#[Route('/admin/image')]
 final class ImageController extends AbstractController
 {
-    #[Route(name: 'app_image_index', methods: ['GET'])]
+    #[Route(name: 'app_admin_image_index', methods: ['GET'])]
     public function index(ImageRepository $imageRepository): Response
     {
         return $this->render('admin/image/index.html.twig', [
@@ -24,7 +24,7 @@ final class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_image_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_admin_image_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $image = new Image();
@@ -47,17 +47,17 @@ final class ImageController extends AbstractController
                     $image->setPath($newFilename);
                 } catch(FileException $e){
                     $this->addFlash('error', 'Une erreur est survenue');
-                    return $this->redirectToRoute('app_image_new');
+                    return $this->redirectToRoute('app_admin_image_new');
                 }
             } else {
                 $this->addFlash('error', 'Sélectionner une image');
-                return $this->redirectToRoute('app_image_new');
+                return $this->redirectToRoute('app_admin_image_new');
             }
 
             $entityManager->persist($image);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_image_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_image_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin/image/new.html.twig', [
@@ -66,7 +66,7 @@ final class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_image_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_admin_image_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Image $image, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ImageType::class, $image);
@@ -93,7 +93,7 @@ final class ImageController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_image_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_image_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin/image/edit.html.twig', [
@@ -103,7 +103,7 @@ final class ImageController extends AbstractController
     }
 
 
-    #[Route('/{id}', name: 'app_image_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_admin_image_show', methods: ['GET'])]
     public function show(Image $image): Response
     {
         return $this->render('admin/image/show.html.twig', [
@@ -111,7 +111,7 @@ final class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_image_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_admin_image_delete', methods: ['POST'])]
     public function delete(Request $request, Image $image, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->getPayload()->getString('_token'))) {
@@ -119,6 +119,6 @@ final class ImageController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_image_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_image_index', [], Response::HTTP_SEE_OTHER);
     }
 }

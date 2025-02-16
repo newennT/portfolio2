@@ -13,6 +13,7 @@
                 <th>Slug</th>
                 <th>Description</th>
                 <th>Cover</th>
+                <th>Catégorie</th>
                 <th>actions</th>
                 <th>Images</th>
             </tr>
@@ -26,6 +27,10 @@
                 <td>{{ projet.description }}</td>
                 <td>{{ projet.cover }}<img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="100"></td>
                 <td>
+                    {% for item in projet.categorie %}
+                    {{ item.nom }}
+                    {% endfor %}</td>
+                <td>
                     {% for image in projet.images %}
                         <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
                     {% else %}
@@ -33,8 +38,8 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ path('app_projet_show', {'id': projet.id}) }}">show</a>
-                    <a href="{{ path('app_projet_edit', {'id': projet.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
+                    <a href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -46,6 +51,6 @@
     </table>
 
     <button>
-        <a href="{{ path('app_projet_new') }}">Create new</a>
+        <a href="{{ path('app_admin_projet_new') }}">Create new</a>
     </button>
 {% endblock %}

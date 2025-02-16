@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Projets</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,8 +20,13 @@
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.nom }}</td>
                 <td>
-                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                    {% for projet in categorie.projets %}
+                    {{ projet.nom }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_categorie_new') }}">Create new</a>
+    <a href="{{ path('app_admin_categorie_new') }}">Create new</a>
 {% endblock %}

@@ -15,12 +15,20 @@
                 <th>Nom</th>
                 <td>{{ categorie.nom }}</td>
             </tr>
+            <tr>
+                <th>Projets</th>
+                <td>
+                    {% for projet in categorie.projets %}
+                    {{ projet.nom }}
+                    {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_categorie_index') }}">back to list</a>
+    <a href="{{ path('app_admin_categorie_index') }}">back to list</a>
 
-    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
 
     {{ include('admin/categorie/_delete_form.html.twig') }}
 {% endblock %}
