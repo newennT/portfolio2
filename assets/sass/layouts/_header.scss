@@ -5,18 +5,12 @@ header{
     z-index: 2000000;
     top: 2%;
     left: 5%;
-    width: 40%;
     opacity: 0;
     font-size: 15px;
-    nav{
-        display: flex;
-        justify-content: space-between;
-    }
     ul{
         list-style-type: none;
         padding: 0;
         display: flex;
-        justify-content: space-around;
         li{
             margin-left: 40px;
         }

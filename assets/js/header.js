@@ -13,6 +13,6 @@ const tl3 = gsap.timeline({
   
   tl3.to("header", {
     opacity: 1,
-    duration: 2,
+    duration: 1,
     ease: "power1.out"
   });
