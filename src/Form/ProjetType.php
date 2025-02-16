@@ -50,23 +50,24 @@ class ProjetType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('coverName', TextType::class, [
+                'label' => 'Image actuelle', // Afficher le nom de l'image actuelle
+                'data' => $options['data']->getCover(), // Affiche le nom de l'image actuelle
+                'disabled' => true, // Rendre ce champ en lecture seule
+                'required' => false, // Il n'est pas obligatoire
+                'mapped' => false,
+            ])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'nom',
                 'multiple' => true,
+                'expanded' => true,
             ])
             ->add('lastUpdate', DateTimeType::class, [
                 'label' => 'Dernière mise à jour',
                 'widget' => 'single_text',
                 'required' => false,
                 'html5' => true,
-            ])
-            ->add('images', CollectionType::class, [
-                'entry_type' => ImageType::class,
-                'entry_options' => ['label' => false],
-                'allow_add' => true,
-                'allow_delete' => true,
-                'by_reference' => false,
             ])
         ;
     }

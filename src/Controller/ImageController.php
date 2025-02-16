@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/image')]
 final class ImageController extends AbstractController
@@ -24,7 +25,7 @@ final class ImageController extends AbstractController
     }
 
     #[Route('/new', name: 'app_image_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image);
@@ -33,14 +34,17 @@ final class ImageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $path = $form->get('path')->getData();
             if($path){
-                $newImageName = uniqid().'.'.$path->guessExtension();
+                $originalFilename = pathinfo($path->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $path->guessExtension();
+
 
                 try{
                     $path->move(
                         $this->getParameter('upload_directory'),
-                        $newImageName
+                        $newFilename
                     );
-                    $image->setPath($newImageName);
+                    $image->setPath($newFilename);
                 } catch(FileException $e){
                     $this->addFlash('error', 'Une erreur est survenue');
                     return $this->redirectToRoute('app_image_new');
@@ -63,7 +67,7 @@ final class ImageController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_image_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Image $image, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Image $image, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ImageType::class, $image);
         $form->handleRequest($request);
@@ -72,14 +76,16 @@ final class ImageController extends AbstractController
             $path = $form->get('path')->getData();
 
             if ($path) {
-                $newImageName = uniqid().'.'.$path->guessExtension();
+                $originalFilename = pathinfo($path->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $path->guessExtension();
 
                 try {
                     $path->move(
                         $this->getParameter('upload_directory'),
-                        $newImageName
+                        $newFilename
                     );
-                    $image->setPath($newImageName);
+                    $image->setPath($newFilename);
                 } catch (FileException $e) {
                     $this->addFlash('error', 'Une erreur est survenue');
                 }

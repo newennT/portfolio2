@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/projet')]
 final class ProjetController extends AbstractController
@@ -26,9 +25,12 @@ final class ProjetController extends AbstractController
 
     #[Route('/new', name: 'app_projet_new', methods: ['GET', 'POST'])]
     #[Route('/{id}/edit', name: 'app_projet_edit', methods: ['GET', 'POST'])]
-    public function new(?Projet $projet, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function new(?Projet $projet, Request $request, EntityManagerInterface $entityManager): Response
     {
         $projet ??= new Projet();
+
+        $images = $projet->getImages();
+
         $form = $this->createForm(ProjetType::class, $projet);
         $form->handleRequest($request);
 
@@ -49,29 +51,6 @@ final class ProjetController extends AbstractController
                 }
             }
 
-            // Images du projet
-            foreach($form->get('images') as $imageForm){
-                $imageFile = $imageForm->get('file')->getData();
-                if($imageFile){
-                    $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                    $safeFilename = $slugger->slug($originalFilename);
-                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-                    try{
-                        $imageFile->move(
-                            $this->getParameter('upload_directory'),
-                            $newFilename
-                        );
-                   
-                        $image = $imageForm->getData();
-                        $image->setPath($newFilename);
-                        $image->setProjet($projet);
-                        $entityManager->persist($image);
-                     } catch (FileException $e){
-                        $this->addFlash('error', 'Une erreur est survenue');
-                    }
-                }
-            }
-
             $entityManager->persist($projet);
             $entityManager->flush();
 
@@ -81,6 +60,7 @@ final class ProjetController extends AbstractController
         return $this->render('admin/projet/new.html.twig', [
             'projet' => $projet,
             'form' => $form,
+            'images' => $images,
         ]);
     }
 

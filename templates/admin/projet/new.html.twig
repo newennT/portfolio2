@@ -15,57 +15,21 @@
         {{ form_row(form.slug) }}
         {{ form_row(form.description) }}
         {{ form_row(form.cover) }}
+        {{ form_row(form.coverName) }}
         {{ form_row(form.categorie) }}
         {{ form_row(form.lastUpdate) }}
 
-        <h3>Images</h3>
-        <div id="projet_images" data-prototype="{{ form_widget(form.images.vars.prototype)|e('html') }}">
-            {{ form_widget(form.images) }}
-        </div>
-
-        {% for image in form.images %}
-            {% if image.vars.data.path is not null %}
-                <div class="image-preview">
-                    <img src="{{ asset('uploads/' ~ image.vars.data.path) }}" alt="Image du projet" width="100">
-                </div>
-            {% endif %}
-        {% endfor %}
-
         <button type="submit">Enregistrer</button>
     {{ form_end(form) }}
+    
+    {% if app.current_route == 'app_projet_edit' %}
+        {% for image in images %}
+            <div class="image-preview">
+                <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image du projet" width="100">
+            </div>
+        {% endfor %}
+    {% endif %}
 
     <a href="{{ path('app_projet_index') }}">back to list</a>
 
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-            document.addEventListener('DOMContentLoaded', function () {
-            let imageContainer = document.querySelector('#projet_images');
-            let addImageButton = document.createElement('button');
-            addImageButton.textContent = "Ajouter une image";
-            addImageButton.type = "button"; 
-            imageContainer.appendChild(addImageButton);
-
-            addImageButton.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                let existingIndexes = Array.from(document.querySelectorAll('#projet_images div'))
-                    .map(div => parseInt(div.dataset.index))
-                    .filter(num => !isNaN(num));
-                
-                let newIndex = existingIndexes.length > 0 ? Math.max(...existingIndexes) + 1 : 0;
-
-                let prototype = imageContainer.dataset.prototype;
-                let newField = prototype.replace(/__name__/g, newIndex);
-                
-                let newDiv = document.createElement('div');
-                newDiv.innerHTML = newField;
-                newDiv.dataset.index = newIndex; 
-                
-                imageContainer.appendChild(newDiv);
-            });
-        });
-    </script>
 {% endblock %}

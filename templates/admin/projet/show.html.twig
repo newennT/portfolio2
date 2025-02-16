@@ -27,6 +27,17 @@
                 <th>Cover</th>
                 <td>{{ projet.cover }}</td>
             </tr>
+
+            <tr>
+                <th>Images</th>
+                <td>
+                    {% for image in projet.images %}
+                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
+                    {% else %}
+                        <p>Aucune image</p>
+                    {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
