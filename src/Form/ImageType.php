@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ImageType extends AbstractType
 {
@@ -41,6 +42,9 @@ class ImageType extends AbstractType
                 'choice_label' => 'nom',
                 'placeholder' => '-- Projet --',
                 'required' => false,
+            ])
+            ->add('texteAlt', TextareaType::class, [
+                'label' => 'Texte alt',
             ])
         ;
     }

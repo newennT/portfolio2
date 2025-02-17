@@ -8,19 +8,7 @@
 
     <h1>{{ action }} d'un projet</h1>
 
-    {# {{ include('admin/projet/_form.html.twig') }} #}
-
-    {{ form_start(form) }}
-        {{ form_row(form.nom) }}
-        {{ form_row(form.slug) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.cover) }}
-        {{ form_row(form.coverName) }}
-        {{ form_row(form.categorie) }}
-        {{ form_row(form.lastUpdate) }}
-
-        <button type="submit">Enregistrer</button>
-    {{ form_end(form) }}
+    {{ include('admin/projet/_form.html.twig') }}
     
     {% if app.current_route == 'app_admin_projet_edit' %}
         {% for image in images %}

@@ -1,4 +1,19 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.nom) }}
+    {{ form_row(form.slug) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.cover) }}
+    {{ form_row(form.coverName) }}
+    {{ form_row(form.categorie) }}
+    {{ form_row(form.lastUpdate) }}
+    {{ form_row(form.metadescription) }}
+    <div class="est-actif">
+        {{ form_row(form.estActif) }}
+    </div>
+    <div class="mis-en-avant">
+        {{ form_row(form.misEnAvant) }}
+    </div>
+    
+
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

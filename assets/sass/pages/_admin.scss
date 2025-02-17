@@ -40,6 +40,18 @@ main{
         label, input, textarea{
             width: 100%;
         }
+        #projet_categorie, .est-actif div, .mis-en-avant div{
+            label{
+                width: 50%;
+                display: inline;
+                margin-right: 50px;
+            }
+            input{
+                width: 20px;
+                display: inline;
+            }
+        }
+
     }
     button{
     background-color: #ffffff;

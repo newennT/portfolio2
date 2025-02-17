@@ -50,6 +50,15 @@ class Projet
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $lastUpdate = null;
 
+    #[ORM\Column]
+    private ?bool $estActif = null;
+
+    #[ORM\Column]
+    private ?bool $misEnAvant = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $metadescription = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -182,5 +191,41 @@ class Projet
         if ($this->lastUpdate === null) {
             $this->lastUpdate = new \DateTime();
         }
+    }
+
+    public function isEstActif(): ?bool
+    {
+        return $this->estActif;
+    }
+
+    public function setEstActif(bool $estActif): static
+    {
+        $this->estActif = $estActif;
+
+        return $this;
+    }
+
+    public function isMisEnAvant(): ?bool
+    {
+        return $this->misEnAvant;
+    }
+
+    public function setMisEnAvant(bool $misEnAvant): static
+    {
+        $this->misEnAvant = $misEnAvant;
+
+        return $this;
+    }
+
+    public function getMetadescription(): ?string
+    {
+        return $this->metadescription;
+    }
+
+    public function setMetadescription(?string $metadescription): static
+    {
+        $this->metadescription = $metadescription;
+
+        return $this;
     }
 }

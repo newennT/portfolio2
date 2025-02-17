@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use App\Form\ImageType;
 use App\Entity\Image;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -51,10 +51,10 @@ class ProjetType extends AbstractType
                 ],
             ])
             ->add('coverName', TextType::class, [
-                'label' => 'Image actuelle', // Afficher le nom de l'image actuelle
-                'data' => $options['data']->getCover(), // Affiche le nom de l'image actuelle
-                'disabled' => true, // Rendre ce champ en lecture seule
-                'required' => false, // Il n'est pas obligatoire
+                'label' => 'Image actuelle', 
+                'data' => $options['data']->getCover(), 
+                'disabled' => true,
+                'required' => false,
                 'mapped' => false,
             ])
             ->add('categorie', EntityType::class, [
@@ -68,6 +68,15 @@ class ProjetType extends AbstractType
                 'widget' => 'single_text',
                 'required' => false,
                 'html5' => true,
+            ])
+            ->add('metadescription', TextareaType::class, [
+                'label' => 'Métadescription',
+            ])
+            ->add('estActif', CheckboxType::class, [
+                'label' => 'Visible en ligne',
+            ])
+            ->add('misEnAvant', CheckboxType::class, [
+                'label' => 'Afficher en page accueil',
             ])
         ;
     }

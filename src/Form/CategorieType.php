@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CategorieType extends AbstractType
 {
@@ -20,12 +21,16 @@ class CategorieType extends AbstractType
             ])
             ->add('projets', EntityType::class, [
                 'class' => Projet::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'multiple' => true,
                 'required' => false,
+                'expanded' => true,
             ])
             ->add('slug', TextType::class, [
                 'label' => 'Slug',
+            ])
+            ->add('metadescription', TextareaType::class, [
+                'label' => 'Métadescription',
             ])
         ;
     }

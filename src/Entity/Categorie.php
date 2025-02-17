@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -31,6 +32,9 @@ class Categorie
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $metadescription = null;
 
     public function __construct()
     {
@@ -89,6 +93,18 @@ class Categorie
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getMetadescription(): ?string
+    {
+        return $this->metadescription;
+    }
+
+    public function setMetadescription(?string $metadescription): static
+    {
+        $this->metadescription = $metadescription;
 
         return $this;
     }
