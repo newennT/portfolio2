@@ -33,6 +33,7 @@ final class CategorieFactory extends PersistentProxyObjectFactory
     {
         return [
             'nom' => self::faker()->text(10),
+            'slug' => self::faker()->slug(),
         ];
     }
 

@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const tl3 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".section02",
+      trigger: ".apparition-header",
       start: "top 10%",
       end: "top 30%",       
       scrub: 2,

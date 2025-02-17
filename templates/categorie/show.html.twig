@@ -3,17 +3,18 @@
 {% block title %}{{ categorie.nom }}{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="categorie-show">
+
+<div class="categorie-show">
+    <div class="container-custom">
         <h1>{{ categorie.nom }}</h1>
 
-        <div class="projets">
+        <div class="projets apparition-header">
 
             {% for projet in categorie.projets %}
             <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
                 <div class="projet">
                     <div class="overlay">
-                        {{ projet.nom }}
+                        <p>{{ projet.nom }}</p>
                     </div>
                     
                     <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
@@ -22,11 +23,11 @@
             {% endfor %}
             
         </div>
-                   
-    </div>
 
-    <a href="{{ path('app_categorie_index') }}">Liste des catégories</a>
-    <a href="{{ path('app_projet_index') }}">Liste des projets</a>
+        <a href="{{ path('app_categorie_index') }}">Liste des catégories</a>
+        <a href="{{ path('app_projet_index') }}">Liste des projets</a>
+
+    </div>
 
 </div>
 

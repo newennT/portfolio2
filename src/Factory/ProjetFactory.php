@@ -32,7 +32,7 @@ final class ProjetFactory extends PersistentProxyObjectFactory
     protected function defaults(): array|callable
     {
         return [
-            'cover' => self::faker()->imageUrl(640, 640, true),
+            'cover' => self::faker()->imageUrl(640, 640, 'product'),
             'description' => self::faker()->paragraph(),
             'lastUpdate' => new \DateTime(),
             'nom' => self::faker()->words(3, true),
