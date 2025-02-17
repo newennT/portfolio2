@@ -9,5 +9,6 @@ import './js/body.js';
 // import './js/boutons.js';
 import './js/header.js';
 import './js/projets.js';
+import './js/apparition-projet.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

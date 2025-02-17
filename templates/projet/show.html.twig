@@ -1,1 +1,39 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}{{ projet.nom }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="projet-show">
+        <p class="categories">
+            {% for item in projet.categorie %}
+                <a href="{{ path('app_categorie_show', {'slug': item.slug}) }}">
+                    {{ item.nom }},
+                </a>
+            {% endfor %}
+        </p>
+        <h1>{{ projet.nom }}</h1>
+        
+
+        <p class="description">{{ projet.description}}</p>
+
+        <div class="images-projet apparition-header">
+            {% for image in projet.images %}
+                <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
+            {% else %}
+                <p>Aucune image</p>
+            {% endfor %}
+        </div>
+
+        <div class="navigation">
+            <a href="{{ path('app_projet_index') }}">
+                <p>
+                    <span class="line">Liste des projets</span>
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
