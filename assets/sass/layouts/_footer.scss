@@ -5,6 +5,10 @@ footer{
     z-index: 200000;
     margin-top: 100px;
     padding: 50px 0;
+    background-image: url('/img/footer.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
     .container{
         display: flex;
         justify-content: space-between;
