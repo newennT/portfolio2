@@ -11,15 +11,17 @@
         <div class="projets apparition-header">
 
             {% for projet in categorie.projets %}
-            <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
-                <div class="projet projet-item">
-                    <div class="overlay">
-                        <p>{{ projet.nom }}</p>
+                {% if projet.estActif == true %}
+                <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
+                    <div class="projet projet-item">
+                        <div class="overlay">
+                            <p>{{ projet.nom }}</p>
+                        </div>
+                        
+                        <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
                     </div>
-                    
-                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
-                </div>
-            </a>
+                </a>
+                {% endif %}
             {% endfor %}
             
         </div>

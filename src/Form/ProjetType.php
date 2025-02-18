@@ -71,12 +71,15 @@ class ProjetType extends AbstractType
             ])
             ->add('metadescription', TextareaType::class, [
                 'label' => 'Métadescription',
+                'required' => false,
             ])
             ->add('estActif', CheckboxType::class, [
                 'label' => 'Visible en ligne',
+                'required' => false,
             ])
             ->add('misEnAvant', CheckboxType::class, [
                 'label' => 'Afficher en page accueil',
+                'required' => false,
             ])
         ;
     }

@@ -34,34 +34,24 @@
 
                 <div class="wrapper">
 
+                {% for projet in projets %}
+                    {% if projet.misEnAvant == true %}
                     <div role="listitem" class="item">
-                        <div class="projet">
-                            <div class="image-projet">
-                                <a href="#">
-                                    <img src="{{ asset('img/placeholder.png')}}" alt="">
-                                </a>
+                        <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
+                            <div class="projet">
+                                <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv">
                             </div>
-                        </div>
+                        </a>
                     </div>
+                    {% endif %}
+                {% endfor %}
 
                     <div role="listitem" class="item">
-                        <div class="projet">
-                            <div class="image-projet">
-                                <a href="#">
-                                    <img src="{{ asset('img/placeholder.png')}}" alt="">
-                                </a>
+                        <a href="{{ path('app_projet_index') }}" aria-label="Voir tous les projets">
+                            <div class="projet voir-plus">
+                                <p>Voir tous les projets</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div role="listitem" class="item">
-                        <div class="projet">
-                            <div class="image-projet">
-                                <a href="#">
-                                    <img src="{{ asset('img/placeholder.png')}}" alt="">
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
@@ -95,7 +85,11 @@
             <p>Après plusieurs années d’études de design graphique à Barcelone puis à Quimper, je suis désormais basé à Rennes en tant que graphiste freelance.</p>
             <p>Passionné par mon métier, je pratique une veille graphique continue. Cela me permet de me tenir à jour sur les évolutions de la discipline, et ainsi de proposer le meilleur service possible à mes client·es.</p>
             <p>La vie culturelle, sociale et locale est ce qui donne un sens à mon travail. Le graphisme est pour moi une façon de soutenir l’activité là où je vis. Je propose ainsi mes services aux professionnels et aux associations à Rennes et dans toute la Bretagne.</p>
-            <div class="bouton" id="btn-contact">Contact</div>
+            <p class="lien-contact">
+                <a href="#">
+                    <span class="line">Contact</span>
+                </a>
+            </p>
         </div>
         
     </div>

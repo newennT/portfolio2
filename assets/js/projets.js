@@ -30,7 +30,7 @@ function initScroll(section, items, direction) {
     items.forEach((item, index) => {
       if (index !== 0) {
         if (direction === "horizontal") {
-            gsap.set(item, { xPercent: 100 });
+            gsap.set(item, { xPercent: 120 });
         } else {
             gsap.set(item, { yPercent: 100 });
         }
@@ -41,7 +41,7 @@ function initScroll(section, items, direction) {
       scrollTrigger: {
         trigger: section,
         pin: true,
-        start: "top 10%",
+        start: "top 3%",
         end: () => `+=${items.length * 100}%`,
         scrub: 1,
         invalidateOnRefresh: true,
@@ -50,8 +50,7 @@ function initScroll(section, items, direction) {
     });
     items.forEach((item, index) => {
       tl.to(item, {
-        scale: 1.2,
-        borderRadius: "10px",
+        scale: 1.05,
       });
   
       direction === "horizontal"

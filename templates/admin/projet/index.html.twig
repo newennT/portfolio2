@@ -14,12 +14,37 @@
                 <th>Description</th>
                 <th>Cover</th>
                 <th>Catégorie</th>
-                <th>actions</th>
                 <th>Images</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for projet in projets %}
+            {% if projet.estActif == true %}
+            <tr style="background-color:rgb(238, 238, 238)">
+                <td>{{ projet.id }}</td>
+                <td>{{ projet.nom }}</td>
+                <td>{{ projet.slug }}</td>
+                <td>{{ projet.description }}</td>
+                <td>{{ projet.cover }}<img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="100"></td>
+                <td>
+                    {% for item in projet.categorie %}
+                    {{ item.nom }}
+                    {% endfor %}</td>
+                <td>
+                    {% for image in projet.images %}
+                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
+                    {% else %}
+                        <p>Aucune image</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
+                    <a href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+            {% if projet.estActif == false %}
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.nom }}</td>
@@ -42,6 +67,7 @@
                     <a href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
                 </td>
             </tr>
+            {% endif %}
         {% else %}
             <tr>
                 <td colspan="6">no records found</td>
