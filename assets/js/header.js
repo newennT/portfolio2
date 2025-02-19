@@ -1,18 +1,16 @@
-gsap.registerPlugin();
-gsap.registerPlugin(ScrollTrigger);
+let boutonHeader = document.querySelector("#bouton-header");
+let menuContenu = document.querySelector(".menu-contenu");
 
-const tl3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".apparition-header",
-      start: "top 10%",
-      end: "top 30%",       
-      scrub: 2,
-      toggleActions: "play none none reverse"
-    }
-  });
-  
-  tl3.to("header", {
-    opacity: 1,
-    duration: 1,
-    ease: "power1.out"
-  });
+console.log(boutonHeader);
+console.log(menuContenu);
+
+boutonHeader.addEventListener("click", function() {
+  console.log("click");
+  if (menuContenu.classList.contains("menu-ouvert")){
+    console.log("menu caché");
+    menuContenu.classList.remove("menu-ouvert");
+  } else {
+    console.log("menu affiché");
+    menuContenu.classList.add("menu-ouvert");
+  }
+})

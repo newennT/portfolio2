@@ -1,8 +1,14 @@
 <header>
-    <ul>
-        <a href="{{ path('app_home') }}"><li>Accueil</li></a>
-        <a href="{{ path('app_projet_index') }}"><li>Portfolio</li></a>
-        <a href="#"><li>Services</li></a>
-        <a href="#"><li>Contact</li></a>
-    </ul>
+    <div id="bouton-header">
+        <span class="line">MENU</span>
+    </div>
+
+    <div class="menu-contenu">
+        <ul>
+            <a href="{{ path('app_home') }}"><li><span class="line">Accueil</span></li></a>
+            <a href="{{ path('app_projet_index') }}"><li><span class="line">Portfolio</span></li></a>
+            <a href="#"><li><span class="line">Services</span></li></a>
+            <a href="#"><li><span class="line">Contact</span></li></a>
+        </ul>
+    </div>
 </header>
