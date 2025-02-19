@@ -12,10 +12,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use App\Form\ImageType;
-use App\Entity\Image;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use EmilePerron\TinymceBundle\Form\Type\TinymceType;
 
 class ProjetType extends AbstractType
 {
@@ -28,8 +27,13 @@ class ProjetType extends AbstractType
             ->add('slug', TextType::class, [
                 'label' => 'Slug'
             ])
-            ->add('description', TextareaType::class, [
-                'label' => 'Description'
+            ->add('description', TinymceType::class, [
+                'label' => 'Description',
+                'attr' => [
+                    "toolbar" => "bold italic underline | bullist numlist",
+                    "plugins" => "advlist autolink link",
+                ],
+
             ])
             ->add('cover', FileType::class, [
                 'required' => false,

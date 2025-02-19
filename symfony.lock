@@ -38,6 +38,9 @@
             "migrations/.gitignore"
         ]
     },
+    "emileperron/tinymce-bundle": {
+        "version": "v3.1.1"
+    },
     "symfony/asset-mapper": {
         "version": "7.2",
         "recipe": {

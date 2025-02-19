@@ -21,3 +21,27 @@
     <a href="{{ path('app_admin_projet_index') }}">back to list</a>
 
 {% endblock %}
+
+{# {% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let textarea = document.querySelector('.tinymce');
+            console.log(textarea);
+
+            if(!textarea) {
+                return;
+            }
+
+            if (textarea.style.display !== 'none' && !tinymce.get('projet_description')){
+                tinymce.init({
+                    selector: '.tinymce',
+                    license_key: 'gpl'
+                });
+            }
+        });
+    </script>
+
+{% endblock %} #}
