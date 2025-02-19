@@ -4,6 +4,33 @@
     position: relative;
     z-index: 10007;
     margin-top: 100px;
+    form {
+        width: 70%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        button{
+            background-color: $fond;
+            border: 1px solid $bleu;
+            border-radius: 50px;
+            padding: 8px 15px 8px 15px;
+            color: $bleu;
+            font-family: 'Bion-book', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 5px 10px 5px;
+            &:hover{
+                background-color: $bleu;
+                color: #ffffff;
+            }
+        }         
+        .filtre-actif{
+            background-color: $bleu;
+            color: #ffffff;
+        }
+    }
     h1{
         font-size: 80px;
         text-align: center;
@@ -57,6 +84,14 @@
 
 @media screen and (max-width: 1200px){
     .categorie-show{
+        .projets{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .portfolio{
+        form{
+            width: 95%;
+        }
         .projets{
             grid-template-columns: repeat(1, 1fr);
         }

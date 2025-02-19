@@ -8,19 +8,32 @@
     <div class="container-custom">
         <h1>Projets</h1>
 
+        <form class="filtres">
+
+                <button data-filter="all" class="filtre-actif">Voir tout</button>
+
+            {% for categorie in categories %}
+
+                    <button data-filter="{{ categorie.id }}">{{ categorie.nom }}</button>
+
+            {% endfor %}
+        </form>
+
         <div class="projets apparition-header">
 
-            {% for projet in projets %}
+            {% for projet in projets|sort((a, b) => a.lastUpdate <=> b.lastUpdate) %}
                 {% if projet.estActif == true %}
-                <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
-                    <div class="projet projet-item">
+                
+                <div class="projet projet-item" data-categorie="{{ projet.categorie|map(c => c.id)|join(',') }}">
+                    <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
                         <div class="overlay">
                             <p>{{ projet.nom }}</p>
                         </div>
                         
                         <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                
                 {% endif %}
             {% endfor %}
             
@@ -29,5 +42,32 @@
     </div>
 
 </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const boutons = document.querySelectorAll(".filtres button");
+    const projets = document.querySelectorAll(".projet-item");
+
+    boutons.forEach((bouton) => {
+        bouton.addEventListener("click", function (event) {
+            event.preventDefault();
+            const categorie = this.getAttribute("data-filter");
+            boutons.forEach((btn) => btn.classList.remove("filtre-actif"));
+            this.classList.add("filtre-actif");
+
+            projets.forEach((projet) => {
+                const projetCategorie = projet.getAttribute("data-categorie").split(",");
+
+                if (categorie === "all" || projetCategorie.includes(categorie)) {
+                    projet.style.display = "block";
+                } else {
+                    projet.style.display = "none";
+                }
+            });
+        });
+    });
+})</script>
 
 {% endblock %}
