@@ -35,15 +35,18 @@
                 <div class="wrapper">
 
                 {% for projet in projets %}
-                    {% if projet.misEnAvant == true %}
-                    <div role="listitem" class="item">
-                        <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
-                            <div class="projet">
-                                <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv">
-                            </div>
-                        </a>
-                    </div>
+                    {% if projet.estActif == true %}
+                        {% if projet.misEnAvant == true %}
+                        <div role="listitem" class="item">
+                            <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
+                                <div class="projet">
+                                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv">
+                                </div>
+                            </a>
+                        </div>
+                        {% endif %}
                     {% endif %}
+
                 {% endfor %}
 
                     <div role="listitem" class="item">

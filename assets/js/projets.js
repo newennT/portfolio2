@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 gsap.registerPlugin(ScrollTrigger);
 
-console.log("GSAP:", gsap);
-console.log("ScrollTrigger:", ScrollTrigger);
-
 const scrollSection = document.querySelectorAll(".scroll-section");
 console.log(scrollSection);
 
