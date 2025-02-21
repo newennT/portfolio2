@@ -4,79 +4,57 @@
 
 {% block body %}
     <h1>Liste des projets</h1>
+    {% for projet in projets %}
+        <div class="projet">
+            <div class="infos">
+                <div class="id-slug">
+                    <div class="id">{{ projet.id }}</div>
+                    <div class="slug">{{ projet.slug }}</div>
+                </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Slug</th>
-                <th>Description</th>
-                <th>Cover</th>
-                <th>Catégorie</th>
-                <th>Images</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for projet in projets %}
-            {% if projet.estActif == true %}
-            <tr style="background-color:rgb(238, 238, 238)">
-                <td>{{ projet.id }}</td>
-                <td>{{ projet.nom }}</td>
-                <td>{{ projet.slug }}</td>
-                <td>{{ projet.description }}</td>
-                <td>{{ projet.cover }}<img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="100"></td>
-                <td>
+                <div class="nom">
+                    <h2>
+                        <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">{{ projet.nom }} 
+                        {% if projet.misEnAvant == true %}
+                        <span class="etoile"> ★</span>
+                        {% endif %}
+                        {% if projet.estActif == false %}
+                        <span class="hors-ligne">HORS-LIGNE</span>
+                        {% endif %}
+                        </a>
+                    </h2>
+                </div>
+
+                <div class="categories">
                     {% for item in projet.categorie %}
                     {{ item.nom }}
-                    {% endfor %}</td>
-                <td>
-                    {% for image in projet.images %}
-                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
-                    {% else %}
-                        <p>Aucune image</p>
                     {% endfor %}
-                </td>
-                <td>
-                    <a href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
-                    <a href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
-                </td>
-            </tr>
-            {% endif %}
-            {% if projet.estActif == false %}
-            <tr>
-                <td>{{ projet.id }}</td>
-                <td>{{ projet.nom }}</td>
-                <td>{{ projet.slug }}</td>
-                <td>{{ projet.description }}</td>
-                <td>{{ projet.cover }}<img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="100"></td>
-                <td>
-                    {% for item in projet.categorie %}
-                    {{ item.nom }}
-                    {% endfor %}</td>
-                <td>
-                    {% for image in projet.images %}
-                        <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
-                    {% else %}
-                        <p>Aucune image</p>
-                    {% endfor %}
-                </td>
-                <td>
-                    <a href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
-                    <a href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
-                </td>
-            </tr>
-            {% endif %}
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </div>
 
-    <button>
-        <a href="{{ path('app_admin_projet_new') }}">Create new</a>
-    </button>
+                <div class="description">
+                    {{ projet.description }}
+                </div>
+
+                <div class="cover">
+                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="150">
+                </div>
+            </div>
+
+            <div class="images">
+                {% for image in projet.images %}
+                    <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="100">
+                {% else %}
+                    <p>Aucune image</p>
+                {% endfor %}
+            </div>
+
+            <div class="actions">
+                <a class="btn btn-blanc" href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
+                <a class="btn btn-jaune" href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <a class="btn btn-vert" href="{{ path('app_admin_projet_new') }}">Create new</a>
+
 {% endblock %}

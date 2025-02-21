@@ -1,35 +1,41 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Image index{% endblock %}
+{% block title %}Liste des images{% endblock %}
 
 {% block body %}
-    <h1>Image index</h1>
+    <h1>Liste des images</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Path</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for image in images %}
-            <tr>
-                <td>{{ image.id }}</td>
-                <td>{{ image.path }}</td>
-                <td>
-                    <a href="{{ path('app_admin_image_show', {'id': image.id}) }}">show</a>
-                    <a href="{{ path('app_admin_image_edit', {'id': image.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="images-index">
+    {% for image in images %}
+        <div class="image">
+            <div class="infos-image">
+                <div class="id-slug">
+                    <div class="id">{{ image.id }}</div>
+                    <div class="slug">{{ image.path }}</div>
+                </div>
 
-    <a href="{{ path('app_admin_image_new') }}">Create new</a>
+                <div class="image-projet">
+                    {{ image.projet.nom }}
+                </div>
+
+                <div class="apercu">
+                    <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image">
+                </div>
+
+                <div class="alt">
+                    {{ image.texteAlt }}
+                </div>
+            
+            </div>
+
+            <div class="actions">
+                <a class="btn btn-blanc" href="{{ path('app_admin_image_show', {'id': image.id}) }}">Voir</a>
+                <a class="btn btn-jaune" href="{{ path('app_admin_image_edit', {'id': image.id}) }}">Modifier</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    
+</div>
+    <a class="btn btn-vert" href="{{ path('app_admin_image_new') }}">Ajouter une image</a>
 {% endblock %}

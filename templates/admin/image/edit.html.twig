@@ -7,10 +7,11 @@
 
     {{ form_start(form) }}
         {{ form_row(form.projet) }}
-        <button type="submit">Enregistrer</button>
+        {{ form_row(form.texteAlt )}}
+        <button class="btn btn-vert" type="submit">Enregistrer</button>
     {{ form_end(form) }}
 
-    <a href="{{ path('app_admin_image_index') }}">back to list</a>
+    <a class="btn btn-blanc" href="{{ path('app_admin_image_index') }}"><< Retourner à la liste des images</a>
 
     {{ include('admin/image/_delete_form.html.twig') }}
 {% endblock %}

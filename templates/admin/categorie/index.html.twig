@@ -1,41 +1,42 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Liste des catégories{% endblock %}
 
 {% block body %}
-    <h1>Categorie index</h1>
+    <h1>Liste des catégories</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Projets</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.nom }}</td>
-                <td>
+    <div class="categorie-index">
+     {% for categorie in categories %}
+        <div class="categorie">
+            <div class="infos-categorie">
+                <div class="id-slug">
+                    <div class="id">{{ categorie.id }} </div>
+                    <div class="slug">{{ categorie.slug }}</div>
+                </div>
+
+                <div class="nom">
+                    <h2>{{ categorie.nom }}</h2>
+                </div>
+
+                <div class="projets-par-categorie">
                     {% for projet in categorie.projets %}
-                    {{ projet.nom }}
+                    {{ projet.nom }}<br>
                     {% endfor %}
-                </td>
-                <td>
-                    <a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="btn btn-blanc" href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
+                <a class="btn btn-jaune" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+            </div>
+        
+        
+        
+        </div>
+    {% endfor %}
+    </div>
+
+    
 
     <a href="{{ path('app_admin_categorie_new') }}">Create new</a>
 {% endblock %}

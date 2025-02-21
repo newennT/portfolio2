@@ -5,6 +5,23 @@
 {% block body %}
     <h1>Categorie</h1>
 
+    <div class="categorie-show-admin">
+        <div class="champ">
+            <div class="intitule">Nom</div>
+            <p>{{ categorie.nom }}</p>
+        </div>
+
+        <div class="champ">
+            <div class="intitule">Projets</div>
+            <p>{% for projet in categorie.projets %}
+                {{ projet.nom }}<br>
+                {% endfor %}
+            </p>
+        </div>
+    
+    
+    </div>
+
     <table class="table">
         <tbody>
             <tr>
@@ -13,7 +30,7 @@
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ categorie.nom }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Projets</th>
