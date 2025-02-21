@@ -187,11 +187,12 @@
                 width: 80vw;
                 height: 99vh;
                 display: flex;
-                justify-content: center;
+                justify-content: center; 
                 align-items: center;
                 color: #ffffff;
                 font-size: 30px;
                 p{
+                    text-align: center;
                     &:hover{
                         color: $bleu;
                     }
@@ -220,11 +221,6 @@
 .item{
     position: absolute;
 }
-
-
-
-
-
 
 
 @media screen and (max-width: 992px){
@@ -256,7 +252,6 @@
         }
     }
 }
-
 
 
 // Section03
@@ -340,6 +335,7 @@
         .image{
             width: 100%;
             margin-left: 0;
+            margin-top: -50px;
         }
         .texte{
             width: 100%;
@@ -349,7 +345,5 @@
                 font-size: 50px;
             }
         }
-        
-        
     }
-  }
+}

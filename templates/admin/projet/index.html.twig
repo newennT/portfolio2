@@ -30,8 +30,8 @@
 
                 <div class="categories">
                     {% for item in projet.categorie %}
-                    {{ item.nom }}
-                    {% endfor %}
+                    {{ item.nom }}{% if not loop.last %}, {% endif %}
+                    {% endfor %} 
                 </div>
 
                 <div class="description">

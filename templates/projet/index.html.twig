@@ -46,6 +46,7 @@
 {% endblock %}
 
 {% block javascripts %}
+{{ parent() }}
 <script>document.addEventListener("DOMContentLoaded", function () {
     const boutons = document.querySelectorAll(".filtres button");
     const projets = document.querySelectorAll(".projet-item");

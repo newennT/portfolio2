@@ -12,6 +12,16 @@
         </div>
 
         <div class="champ">
+            <div class="intitule">Slug</div>
+            <p>{{ categorie.slug }}</p>
+        </div>
+
+        <div class="champ">
+            <div class="intitule">Métadescription</div>
+            <p>{{ categorie.metadescription }}</p>
+        </div>
+
+        <div class="champ">
             <div class="intitule">Projets</div>
             <p>{% for projet in categorie.projets %}
                 {{ projet.nom }}<br>
@@ -22,30 +32,11 @@
     
     </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categorie.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Projets</th>
-                <td>
-                    {% for projet in categorie.projets %}
-                    {{ projet.nom }}
-                    {% endfor %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    
 
-    <a href="{{ path('app_admin_categorie_index') }}">back to list</a>
+    <a class="btn btn-blanc" href="{{ path('app_admin_categorie_index') }}"><< Retourner à la liste des catégories</a>
 
-    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+    <a class="btn btn-jaune" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
 
     {{ include('admin/categorie/_delete_form.html.twig') }}
 {% endblock %}

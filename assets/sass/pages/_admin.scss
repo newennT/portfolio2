@@ -40,7 +40,7 @@ main{
         background-color: #ffffffbd;
         margin-bottom: 10px;
         .infos{
-            width: 60%;
+            width: 50%;
             padding: 15px;
         }
         .images{
@@ -50,7 +50,7 @@ main{
             width: 30%;
         } 
         .actions{
-            width: 10%;
+            width: 20%;
             padding: 15px;
         }
     }
@@ -84,6 +84,7 @@ main{
     .nom{
         h2{
             margin-bottom: 10px;
+            font-family: 'Bion-bold', sans-serif;
         }
         a{
             color: #000000;
@@ -117,6 +118,7 @@ main{
         .intitule{
             background-color: #ffffff;
             padding: 10px;
+            font-family: 'Bion-bold', sans-serif;
         }
     }
     .images-index .image{

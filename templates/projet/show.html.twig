@@ -9,7 +9,7 @@
         <p class="categories">
             {% for item in projet.categorie %}
                 <a href="{{ path('app_categorie_show', {'slug': item.slug}) }}">
-                    {{ item.nom }},
+                    {{ item.nom }}{% if not loop.last %}, {% endif %}
                 </a>
             {% endfor %}
         </p>
