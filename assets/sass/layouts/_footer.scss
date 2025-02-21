@@ -21,4 +21,16 @@ footer{
         }
     }
 }
-  
+
+
+@media screen and (max-width: 768px){
+    footer{
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        ul{
+            margin-bottom: 30px;
+        }
+    }
+}

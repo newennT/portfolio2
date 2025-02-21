@@ -3,3 +3,33 @@
     margin-left: -80%;
     margin-top: -400px;
 }
+
+@media screen and (max-width: 1400px){
+    #accueil01{
+        margin-top: -300px;
+        margin-left: -70%;
+    }
+}
+
+
+@media screen and (max-width: 992px){
+    #accueil01{
+        width: 130%;
+        margin-top: -300px;
+        margin-left: -30%;
+
+    }
+}
+
+@media screen and (max-width: 768px){
+    #accueil01{
+        width: 110%;
+        margin-top: -200px;
+        margin-left: -30%;
+
+    }
+}
+
+@media screen and (max-width: 576px){
+    
+}

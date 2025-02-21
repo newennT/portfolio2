@@ -33,7 +33,7 @@ header{
         }
     
     #bouton-header .line:hover::after {
-        transform: scale(150);
+        transform: scale(100);
         opacity: 0.9;
     }
     
@@ -88,7 +88,68 @@ header{
         opacity: 1;
         transform: translateX(0);
         transition-delay: 0s;
+    } 
+}
+
+
+@media screen and (max-width: 1400px){
+    header{
+        .menu-contenu{
+            ul{
+                a, li{
+                    font-size: 50px;
+                }
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 1200px){
+    header{
+        #bouton-header{      
+            left: -2%;
+        }
+        .menu-contenu{
+            left: 25%;
+            width: 75vw;
+        }
     }
-    
-    
+
+}
+
+@media screen and (max-width: 992px){
+    header{
+        #bouton-header{      
+            left: -5%;
+            top: 5%;
+            font-size: 25px;
+        }
+        .menu-contenu{
+            left: 20%;
+            width: 80vw;
+            ul{
+                a, li{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    header{
+        #bouton-header{      
+            left: -6%;
+            top: 5%;
+            font-size: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px){
+    header{
+        #bouton-header{      
+            left: -8%;
+        }
+    }
 }

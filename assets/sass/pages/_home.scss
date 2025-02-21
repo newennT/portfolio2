@@ -14,6 +14,7 @@
         width: 50%;
         margin-top: 50px;
         position: relative;
+        z-index: 10056;
         h1{
             font-size: 70px;
             margin-bottom: 0;
@@ -37,11 +38,91 @@
     }
 }
 
-@media screen and (max-width: 992px){
+
+@media screen and (max-width: 1400px){
     .section01{
-        flex-direction: column;
+        .texte{
+            h1{
+                font-size: 60px;
+                margin-right: 0;
+            }
+        }
     }
 }
+
+@media screen and (max-width: 1200px){
+    .section01{
+        .texte{
+            h1{
+                font-size: 50px;
+            }
+            h2{
+                font-size: 30px;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 992px){
+    .section01{
+        height: auto;
+        flex-direction: column;
+        .image{
+            width: 80%;
+            background-color: #424afa00;
+        }
+        .texte{
+            width: 100%;
+            margin-top: 0;
+            h1{
+                font-size: 70px;
+                margin-left: 0;
+            }
+            h2{
+                font-size: 50px;
+                margin-left: -40px;
+            }
+            .paragraphe{
+                position: relative;
+                margin-left: 0;
+                margin-top: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .section01{
+        .image{
+            width: 100%;
+        }
+        .texte{
+            h1{
+                font-size: 60px;
+            }
+            h2{
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px){
+    .section01{
+        .texte{
+            h1{
+                font-size: 50px;
+            }
+            h2{
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+
+// Animation titres section01
 
 .line{
     display: inline-block;
@@ -66,7 +147,7 @@
     }
 
 .section01 .line:hover::after {
-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 
@@ -138,10 +219,47 @@ transform: scaleX(1);
 
 .item{
     position: absolute;
-    // inset: 0%;
 }
 
 
+
+
+
+
+
+@media screen and (max-width: 992px){
+    .section02{
+        .image{
+            background-color: #424afa00;
+            .projets{
+                margin-top: 300px;
+                margin-left: 0;
+            }
+            }
+        }
+        .texte{
+            .separateur{
+                margin-bottom: 150px;
+                margin-right: -50%;
+                margin-left: -200%;
+            }       
+    }
+}
+
+@media screen and (max-width: 576px){
+    .section02{
+        .image{
+            .projets{
+                margin-top: 250px;
+                margin-left: 50px;
+            }
+        }
+    }
+}
+
+
+
+// Section03
 
 .separateur2{
     position: relative;
@@ -150,8 +268,6 @@ transform: scaleX(1);
     margin-top: -100px;
 }
 
-
-// Section03
 .section03{
     position: relative;
     z-index: 10070;
@@ -214,18 +330,23 @@ transform: scaleX(1);
 }
 
   @media screen and (max-width: 992px){
+    .separateur2{
+        width: 150%;
+        margin-top: -100px;
+    } 
     .section03{
         flex-direction: column;
         margin-top: 80px;
         .image{
             width: 100%;
+            margin-left: 0;
         }
         .texte{
             width: 100%;
             margin-top: 80px;
             
             h2{
-                font-size: 60px;
+                font-size: 50px;
             }
         }
         
