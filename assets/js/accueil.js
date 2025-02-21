@@ -11,8 +11,8 @@ const tlAccueil01 = gsap.timeline({
 });
 
 tlAccueil01.to("#accueil01", {
-    scale: 1.1,
-    y: 300,
+    scale: 1.15,
+    y: 200,
     duration: 4,
     ease: "power1.inOut"
 });
@@ -28,9 +28,9 @@ const tlAccueil02 = gsap.timeline({
 });
 
 tlAccueil02.to("#accueil02", {
-    scale: 1.1,
-    y: 400,
-    duration: 4,
+    scale: 1.15,
+    y: 300,
+    duration: 5,
     ease: "power1.out"
 });
 
