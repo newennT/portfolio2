@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1>Liste des images</h1>
+    <a class="btn btn-vert" href="{{ path('app_admin_image_new') }}">Ajouter une image</a>
 
     <div class="images-index">
     {% for image in images %}
@@ -37,5 +38,4 @@
 
     
 </div>
-    <a class="btn btn-vert" href="{{ path('app_admin_image_new') }}">Ajouter une image</a>
 {% endblock %}

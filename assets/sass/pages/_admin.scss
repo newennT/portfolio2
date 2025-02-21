@@ -189,6 +189,19 @@ main{
         .mis-en-avant{
             margin-bottom: 50px;
         }
+        #categorie_projets{
+            margin-bottom: 50px;
+            label{
+                display: inline-block;
+                font-family: 'Bion', sans-serif;
+                margin: 0;
+                width: 85%;
+            }
+            input{
+                display: inline-block;
+                width: 10%;
+            }
+        }
     }
     .image-preview{
         margin-top: 50px;
@@ -208,18 +221,18 @@ main{
     }
 
     .btn-blanc{
-        background-color: #ffffff;
-        border: #ffffff 2px solid;
+        background-color: #def3ff;
+        border: #def3ff 2px solid;
     }
 
     .btn-vert{
-        background-color: #4dec67; 
-        border: #4dec67 2px solid;  
+        background-color: #8be99b; 
+        border: #8be99b 2px solid;  
     }
 
     .btn-jaune{
-        background-color: #e8ff19; 
-        border: #e8ff19 2px solid;  
+        background-color: #ffea00; 
+        border: #ffea00 2px solid;  
     }
     .btn-rouge{
         background-color: #ff0000;

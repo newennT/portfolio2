@@ -16,9 +16,9 @@
         <h1>{{ projet.nom }}</h1>
         
 
-        <p class="description">{{ projet.description}}</p>
+        <p class="description">{{ projet.description|raw}}</p>
 
-        <div class="images-projet apparition-header">
+        <div class="images-projet">
             {% for image in projet.images %}
                 <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
             {% else %}
@@ -28,9 +28,7 @@
 
         <div class="navigation">
             <a href="{{ path('app_projet_index') }}">
-                <p>
-                    <span class="line">Liste des projets</span>
-                </p>
+                <span class="line">Liste des projets</span>
             </a>
         </div>
     </div>

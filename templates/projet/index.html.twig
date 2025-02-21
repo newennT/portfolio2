@@ -19,7 +19,7 @@
             {% endfor %}
         </form>
 
-        <div class="projets apparition-header">
+        <div class="projets">
 
             {% for projet in projets|sort((a, b) => a.lastUpdate <=> b.lastUpdate) %}
                 {% if projet.estActif == true %}

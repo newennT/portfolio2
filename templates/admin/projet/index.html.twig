@@ -4,6 +4,9 @@
 
 {% block body %}
     <h1>Liste des projets</h1>
+    
+    <a class="btn btn-vert" href="{{ path('app_admin_projet_new') }}">Créer un projet</a>
+
     {% for projet in projets %}
         <div class="projet">
             <div class="infos">
@@ -32,7 +35,7 @@
                 </div>
 
                 <div class="description">
-                    {{ projet.description }}
+                    {{ projet.description|raw }}
                 </div>
 
                 <div class="cover">
@@ -49,12 +52,11 @@
             </div>
 
             <div class="actions">
-                <a class="btn btn-blanc" href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">show</a>
-                <a class="btn btn-jaune" href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">edit</a>
+                <a class="btn btn-blanc" href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">Voir</a>
+                <a class="btn btn-jaune" href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">Modifier</a>
             </div>
         </div>
     {% endfor %}
 
-    <a class="btn btn-vert" href="{{ path('app_admin_projet_new') }}">Create new</a>
 
 {% endblock %}

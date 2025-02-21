@@ -6,6 +6,8 @@
     <h1>Liste des catégories</h1>
 
     <div class="categorie-index">
+    <a class="btn btn-vert" href="{{ path('app_admin_categorie_new') }}">Créer une catégorie</a>
+
      {% for categorie in categories %}
         <div class="categorie">
             <div class="infos-categorie">
@@ -26,8 +28,8 @@
             </div>
 
             <div class="actions">
-                <a class="btn btn-blanc" href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
-                <a class="btn btn-jaune" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                <a class="btn btn-blanc" href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">Voir</a>
+                <a class="btn btn-jaune" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
             </div>
         
         
@@ -38,5 +40,4 @@
 
     
 
-    <a href="{{ path('app_admin_categorie_new') }}">Create new</a>
 {% endblock %}

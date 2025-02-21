@@ -4,11 +4,11 @@
 
 {% block body %}
 
-<div class="categorie-show apparition-header">
+<div class="categorie-show">
     <div class="container-custom">
         <h1>{{ categorie.nom }}</h1>
 
-        <div class="projets apparition-header">
+        <div class="projets">
 
             {% for projet in categorie.projets %}
                 {% if projet.estActif == true %}
