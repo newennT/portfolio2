@@ -12,7 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+
+#[IsGranted('IS_AUTHENTICATED')]
 #[Route('/admin/image')]
 final class ImageController extends AbstractController
 {

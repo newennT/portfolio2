@@ -11,7 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+
+#[IsGranted('IS_AUTHENTICATED')]
 #[Route('/admin/projet')]
 final class ProjetController extends AbstractController
 {
