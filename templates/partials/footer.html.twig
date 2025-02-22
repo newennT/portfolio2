@@ -3,20 +3,33 @@
         <div>
             <h3>Plan du site</h3>
             <ul>
-                <li>Accueil</li>
-                <li>Portfolio</li>
-                <li>Services</li>
-                <li>Contact</li>
+                <a href="{{ path('app_home') }}">
+                    <li>Accueil</li>
+                </a>
+                <a href="{{ path('app_projet_index') }}">
+                    <li>Portfolio</li>
+                </a>
+                <a href="#">
+                    <li>Contact</li>
+                </a>
             </ul>
         </div>
         <div>
             <div>
                 <h3>Liens</h3>
                 <ul>
-                    <li>Etsy</li>
-                    <li>Instagram</li>
-                    <li>Github</li>
-                    <li>Bluesky</li>
+                    <a href="https://www.etsy.com/fr/shop/NewennTurbiau?ref=seller-platform-mcnav">
+                        <li>Etsy</li>
+                    </a>
+                    <a href="https://github.com/newennT">
+                        <li>Github</li>
+                    </a>
+                    <a href="https://www.instagram.com/newenn.t/">
+                        <li>Instagram</li>
+                    </a>
+                    <a href="https://bsky.app/profile/newennturbiau.bsky.social">
+                        <li>Bluesky</li>
+                    </a>
                 </ul>
             </div>
         </div>
