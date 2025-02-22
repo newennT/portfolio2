@@ -1,14 +1,36 @@
 <header>
     <div id="bouton-header">
-        <span class="line">MENU</span>
+        <span class="line" aria-label="Ouvrir le menu">MENU</span>
     </div>
 
     <div class="menu-contenu">
         <ul>
-            <a href="{{ path('app_home') }}"><li><span class="line">Accueil</span></li></a>
-            <a href="{{ path('app_projet_index') }}"><li><span class="line">Portfolio</span></li></a>
-            <a href="#"><li><span class="line">Services</span></li></a>
-            <a href="#"><li><span class="line">Contact</span></li></a>
+            <a href="{{ path('app_home') }}">
+                <li><span class="line">Accueil</span></li>
+            </a>
+            <a href="{{ path('app_projet_index') }}">
+                <li><span class="line">Portfolio</span></li>
+            </a>
+            <a href="#"><li>
+                <span class="line">Contact</span></li>
+            </a>
+
+            <div class="liens-externes">
+                <li class="li-label">Liens externes</li>
+                
+                <a href="https://www.etsy.com/fr/shop/NewennTurbiau?ref=seller-platform-mcnav">
+                    <li>Etsy</li>
+                </a>
+                <a href="https://github.com/newennT">
+                    <li>Github</li>
+                </a>
+                <a href="https://www.instagram.com/newenn.t/">
+                    <li>Instagram</li>
+                </a>
+                <a href="https://bsky.app/profile/newennturbiau.bsky.social">
+                    <li>Bluesky</li>
+                </a>
+            </div>
         </ul>
     </div>
 </header>

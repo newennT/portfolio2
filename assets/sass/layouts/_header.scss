@@ -59,6 +59,24 @@ header{
             li{
                 margin-bottom: 50px;
             }
+            .liens-externes{
+                border-top: $bleu 1px solid;
+                margin-left: 40px;
+                a, li{
+                    font-size: 25px;
+                    &:hover{
+                        color: $bleu;
+                    }
+                }
+                li{
+                    margin-bottom: 15px;
+                }
+                .li-label{
+                    font-size: 16px;
+                    color: $bleu;
+                    margin-top: 50px;
+                }
+            }
         }
         
     
