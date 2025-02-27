@@ -59,6 +59,9 @@ class Projet
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $metadescription = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageMiseEnAvant = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -225,6 +228,18 @@ class Projet
     public function setMetadescription(?string $metadescription): static
     {
         $this->metadescription = $metadescription;
+
+        return $this;
+    }
+
+    public function getImageMiseEnAvant(): ?string
+    {
+        return $this->imageMiseEnAvant;
+    }
+
+    public function setImageMiseEnAvant(?string $imageMiseEnAvant): static
+    {
+        $this->imageMiseEnAvant = $imageMiseEnAvant;
 
         return $this;
     }
