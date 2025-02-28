@@ -39,7 +39,10 @@
                 </div>
 
                 <div class="cover">
-                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="150">
+                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Miniature" width="150">
+                    {% if projet.imageMiseEnAvant %}
+                    <img src="{{ asset('uploads/' ~ projet.imageMiseEnAvant) }}" alt="Image en page d'accueil" width="150">
+                    {% endif %}
                 </div>
             </div>
 

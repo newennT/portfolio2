@@ -1,0 +1,83 @@
+@use "../base/variables" as *;
+
+
+.contact-section01, .contact-section02, .contact-section03, h1{
+    position: relative;
+    z-index: 10062;
+}
+
+.contact-h1{
+    font-size: 50px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.contact-section01{
+    padding-top: 80px;
+    margin-right: -30vw;
+    height: 55vh;
+    .mots{
+        .mot{
+            font-size: 70px;
+            margin: 0;
+        }
+        #mot01{
+            margin-left: -8vw;
+        }
+        #mot02{
+            margin-left: 30vw;
+        }
+        #mot03{
+            margin-left: -10vw;
+        }
+        #mot04{
+            margin-left: 30vw;
+        }
+    }
+}
+
+#contact01{
+    width: 50%;
+    position: absolute;
+    top: -25%;
+    right: -20%;
+    z-index: 10050;
+}
+
+.contact-separateur{
+    position: relative;
+    z-index: 10050;
+    width: 50%;
+    margin-bottom: 100px;
+}
+
+.contact-section02{
+    div{
+        width: 50%;
+        a{
+            color: $bleu;
+            &:hover{
+                color: #ffffff;
+            }
+        }
+        }
+        .adresse-mail{
+            font-size: 22px;
+            text-align: center;
+            font-family: 'Bion-bold', sans-serif;
+        }
+    }
+    .lien-etsy{
+        margin-top: 100px;
+
+    }
+}
+
+.contact-section03{
+    margin-top: 100px;
+    h2{
+        font-size: 80px;
+        text-align: center;
+        font-family: 'Bion-bold', sans-serif;
+    }
+}

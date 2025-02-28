@@ -38,7 +38,7 @@ final class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Image de couverture
+            // Image miniature
             $cover = $form->get('cover')->getData();
             if($cover){
                 $newImageName = uniqid().'.'.$cover->guessExtension();
@@ -49,6 +49,21 @@ final class ProjetController extends AbstractController
                         $newImageName
                     );
                     $projet->setCover($newImageName);
+                } catch (FileException $e){
+                    $this->addFlash('error', 'Une erreur est survenue');
+                }
+            }
+
+            $imageMiseEnAvant = $form->get('imageMiseEnAvant')->getData();
+            if($imageMiseEnAvant){
+                $newImageName = uniqid().'.'.$imageMiseEnAvant->guessExtension();
+
+                try{
+                    $imageMiseEnAvant->move(
+                        $this->getParameter('upload_directory'),
+                        $newImageName
+                    );
+                    $projet->setImageMiseEnAvant($newImageName);
                 } catch (FileException $e){
                     $this->addFlash('error', 'Une erreur est survenue');
                 }

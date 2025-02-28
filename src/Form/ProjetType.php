@@ -38,7 +38,7 @@ class ProjetType extends AbstractType
             ->add('cover', FileType::class, [
                 'required' => false,
                 'mapped' => false,
-                'label' => 'Image de couverture ou miniature',
+                'label' => 'Image de miniature',
                 'attr' => [
                     'accept' => 'image/png, image/jpeg, image/webp',
                 ],
@@ -84,6 +84,25 @@ class ProjetType extends AbstractType
             ->add('misEnAvant', CheckboxType::class, [
                 'label' => 'Afficher en page accueil',
                 'required' => false,
+            ])
+            ->add('imageMiseEnAvant', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'label' => 'Image affichée en page d\'accueil si image mise en avant',
+                'attr' => [
+                    'accept' => 'image/png, image/jpeg, image/webp',
+                ],
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage' => 'Seulement formats jpeg, png ou webp',
+                    ]),
+                ],
             ])
         ;
     }

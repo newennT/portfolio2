@@ -34,20 +34,17 @@
 
                 <div class="wrapper">
 
-                {% for projet in projets %}
-                    {% if projet.estActif == true %}
-                        {% if projet.misEnAvant == true %}
-                        <div role="listitem" class="item">
-                            <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
-                                <div class="projet">
-                                    <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv">
-                                </div>
-                            </a>
-                        </div>
+                    {% for projet in projets %}
+                        {% if projet.estActif == true and projet.misEnAvant == true and projet.imageMiseEnAvant %}
+                            <div role="listitem" class="item">
+                                <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
+                                    <div class="projet">
+                                        <img src="{{ asset('uploads/' ~ projet.imageMiseEnAvant) }}" alt="Image de couv">
+                                    </div>
+                                </a>
+                            </div>
                         {% endif %}
-                    {% endif %}
-
-                {% endfor %}
+                    {% endfor %}
 
                     <div role="listitem" class="item">
                         <a href="{{ path('app_projet_index') }}" aria-label="Voir tous les projets">

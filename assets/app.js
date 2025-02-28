@@ -6,10 +6,10 @@
  */
 import './styles/app.scss';
 import './js/body.js';
-// import './js/boutons.js';
 import './js/header.js';
 import './js/projets.js';
 import './js/apparition-projet.js';
 import './js/accueil.js';
+import './js/contact.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

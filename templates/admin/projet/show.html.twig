@@ -25,9 +25,16 @@
     </div>
 
     <div class="champ">
-        <div class="intitule">Image de couverture / Image mise en avant</div>
+        <div class="intitule">Image miniature</div>
         <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="700">
     </div>
+
+    {% if projet.imageMiseEnAvant %}
+        <div class="champ">
+            <div class="intitule">Image en page d'accueil</div>
+            <img src="{{ asset('uploads/' ~ projet.imageMiseEnAvant) }}" alt="Image de couv" width="700">
+        </div>
+    {% endif %}
 
     <div class="champ">
         <div class="intitule">Images</div>

@@ -4,25 +4,60 @@
 
 {% block body %}
 <div class="container">
+    <h1 class="contact-h1">Me contacter</h1>
+    {% include 'partials/contact01.html.twig' %}
     <div class="contact-section01">
         <div class="mots">
             {# Mots qui défilent en scroll horizontal #}
-            <span>Commande d'illustration</span>
-            <span>Création de logo</span>
-            <span>Support de communication</span>
-            <span>Conception de site web</span>
+            <p id="mot01" class="mot">Commande d'<span>illustration</span></p>
+            <p id="mot02" class="mot">Création de <span>logo</span></p>
+            <p id="mot03" class="mot">Support de <span>communication</span></p>
+            <p id="mot04" class="mot">Conception de <span>site web</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="contact-separateur">
+    <img src="{{ asset('img/separateur.svg')}}" alt="">
+</div>
+
+<div class="container">
+    <div class="contact-section02">
+        <div>
+            <p>Vous avez un projet de création de logo, site web, ou autre support de communication, et souhaitez obtenir un devis de graphiste ? Ou bien vous souhaitez vous informer avant de vous lancer ? Ecrivez-moi, je vous répondrai dès que possible !</p>
+            <p>Gallout a rit skrivañ e brezhoneg ivez, respont a rin gant plijadur !</p>
+            <p class="adresse-mail">newennturbiau-graphisme[at]gmail.com</p>
         </div>
         
-
-        <p>Vous avez un projet de création de logo, site web, ou autre support de communication, et souhaitez obtenir un devis de graphiste ? Ou bien vous souhaitez vous informer avant de vous lancer ?</p>
-        <p>newennturbiau-graphisme[at]gmail.com</p>
-
+        <div class="lien-etsy">
+            Pour les demandes concernant la vente d’exemplaires de linogravures ou d’illustrations, vous pouvez visiter <a href="https://www.etsy.com/fr/shop/NewennTurbiau">ma boutique Etsy.</a>
+        </div>
     </div>
 
-    <div class="contact-section02">
-    <h2>Mes services</h2>
-        {# scroll horizontal des services avec carrousel photos des réalisations et lien vers le portfolio #}
+    <div class="contact-section03">
+        <h2>Mes services</h2> 
+        <div>
+            <h3>Identité visuelle</h3>
+            <p>Le logotype est un élément indispensable lors de la création de votre activité. Souvent accompagné d’une charte graphique, il permet d’identifier votre domaine d’activité du premier coup d’oeil et de communiquer vos valeurs. Décliné sur différents supports, il doit aussi répondre à un certain nombre de critères techniques pour être exploitable.</p>
+        </div>
+
+        <div>
+            <h3>Site web</h3>
+            <p>Autre élément indispensable à toute activité professionnelle, le site web est l’outil qui permet le contact direct avec votre public ou vos clients. Il doit de ce fait répondre à un certain nombre de normes techniques et ergonomiques pour être efficace et sécurisé. Découvrez mes services de création de sites web, depuis la maquette jusqu’à l’intégration WordPress.</p>
+        </div>
+
+        <div>
+            <h3>Illustration</h3>
+            <p>Une illustration permet de toucher votre public grâce à un univers graphique et poétique qui vous est propre. Elle peut être un véritable atout dans votre communication. En tant qu’illustrateur freelance, je vous propose des services de création d’illustrations originales et 100% personnalisées.</p>
+        </div>
+
+        <div>
+            <h3>Supports print et web</h3>
+            <p>Je vous accompagne dans la création de vos supports de communication, imprimés et numériques : affiche, brochure, flyer, visuels pour réseaux sociaux, plaquette commerciale, newsletters, animation, montage vidéo…
+            <p>En accord avec votre stratégie de communication, mes services de graphiste incluent la mise en place d’un langage graphique cohérent qui vous aide à atteindre vos objectifs auprès de votre public.</p>
+        </div>
     </div>
+
 </div>
 
 
