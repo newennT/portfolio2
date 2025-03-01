@@ -132,7 +132,6 @@ main{
         }
         .actions{
             width: 15%;
-            border-left: #e9e9e9 2px solid;
         }
         .image-projet{
             font-family: 'Bion-bold', sans-serif;
@@ -152,7 +151,6 @@ main{
         }
         .actions{
             width: 20%;
-            border-left: #c5c5c5 1px solid;
         }
 
     }
@@ -224,8 +222,8 @@ main{
     }
 
     .btn-blanc{
-        background-color: #def3ff;
-        border: #def3ff 2px solid;
+        background-color: #ffffff;
+        border: #74c6f6 2px solid;
     }
 
     .btn-vert{
@@ -241,7 +239,7 @@ main{
         background-color: #ff0000;
         border: #ff0000 2px solid;
         color: #ffffff;
-        font-family: 'Bion-book', sans-serif;
+        font-family: 'Bion', sans-serif;
         &:hover {
             color: #000000;
         }
