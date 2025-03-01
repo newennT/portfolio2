@@ -1,29 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-const scrollSection = document.querySelectorAll(".scroll-section");
-console.log(scrollSection);
+  const scrollSection = document.querySelectorAll(".scroll-section");
+  console.log(scrollSection);
 
-scrollSection.forEach((section) => {
+  scrollSection.forEach((section) => {
     const wrapper = section.querySelector(".wrapper");
     const items = wrapper.querySelectorAll(".item")
   
   
-  let direction = null;
-  
-    if (section.classList.contains("vertical-section")){
-      direction = "vertical";
-    } else if (section.classList.contains("horizontal-section")){
-      direction = "horizontal";
-    }
-  
-    initScroll(section, items, direction);
-  
-});
+    let direction = null;
+    
+      if (section.classList.contains("vertical-section")){
+        direction = "vertical";
+      } else if (section.classList.contains("horizontal-section")){
+        direction = "horizontal";
+      }
+    
+      initScroll(section, items, direction);
+    
+  });
 
 
-function initScroll(section, items, direction) {
+  function initScroll(section, items, direction) {
     items.forEach((item, index) => {
       if (index !== 0) {
         if (direction === "horizontal") {
