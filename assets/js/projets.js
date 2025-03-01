@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   const scrollSection = document.querySelectorAll(".scroll-section");
-  console.log(scrollSection);
 
   scrollSection.forEach((section) => {
     const wrapper = section.querySelector(".wrapper");

@@ -97,3 +97,19 @@
         }
     }
 }
+
+@media screen and (max-width: 992px){
+    .portfolio{
+        h1{
+            font-size: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 764px){
+    .portfolio{
+        h1{
+            font-size: 50px;
+        }
+    }
+}
