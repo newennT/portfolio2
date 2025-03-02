@@ -26,6 +26,9 @@ class Image
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $texteAlt = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $ordre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,6 +66,18 @@ class Image
     public function setTexteAlt(?string $texteAlt): static
     {
         $this->texteAlt = $texteAlt;
+
+        return $this;
+    }
+
+    public function getOrdre(): ?int
+    {
+        return $this->ordre;
+    }
+
+    public function setOrdre(?int $ordre): static
+    {
+        $this->ordre = $ordre;
 
         return $this;
     }

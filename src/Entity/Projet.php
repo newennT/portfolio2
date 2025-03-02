@@ -62,6 +62,12 @@ class Projet
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageMiseEnAvant = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $ordre_miniature = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $ordre_mis_en_avant = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -240,6 +246,30 @@ class Projet
     public function setImageMiseEnAvant(?string $imageMiseEnAvant): static
     {
         $this->imageMiseEnAvant = $imageMiseEnAvant;
+
+        return $this;
+    }
+
+    public function getOrdreMiniature(): ?int
+    {
+        return $this->ordre_miniature;
+    }
+
+    public function setOrdreMiniature(?int $ordre_miniature): static
+    {
+        $this->ordre_miniature = $ordre_miniature;
+
+        return $this;
+    }
+
+    public function getOrdreMisEnAvant(): ?int
+    {
+        return $this->ordre_mis_en_avant;
+    }
+
+    public function setOrdreMisEnAvant(?int $ordre_mis_en_avant): static
+    {
+        $this->ordre_mis_en_avant = $ordre_mis_en_avant;
 
         return $this;
     }
