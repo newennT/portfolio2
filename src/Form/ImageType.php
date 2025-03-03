@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class ImageType extends AbstractType
 {
@@ -45,6 +46,10 @@ class ImageType extends AbstractType
             ])
             ->add('texteAlt', TextareaType::class, [
                 'label' => 'Texte alt',
+            ])
+            ->add('ordre', NumberType::class, [
+                'label' => 'Ordre affichage',
+                'required' => false,
             ])
         ;
     }

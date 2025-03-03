@@ -21,7 +21,7 @@
 
         <div class="projets">
 
-            {% for projet in projets|sort((a, b) => a.lastUpdate <=> b.lastUpdate) %}
+            {% for projet in projets|sort((a, b) => a.ordreMiniature <=> b.ordreMiniature) %}
                 {% if projet.estActif == true %}
                 
                 <div class="projet projet-item" data-categorie="{{ projet.categorie|map(c => c.id)|join(',') }}">

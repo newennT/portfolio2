@@ -12,6 +12,11 @@
         </div>
 
         <div class="champ">
+            <div class="intitule">Ordre</div>
+            <p>{{ image.ordre }}</p>
+        </div>
+
+        <div class="champ">
             <div class="intitule">Path</div>
             <p>{{ image.path }}</p>
             <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image">

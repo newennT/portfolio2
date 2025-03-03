@@ -57,6 +57,7 @@
             <div class="actions">
                 <a class="btn btn-blanc" href="{{ path('app_admin_projet_show', {'slug': projet.slug}) }}">Voir</a>
                 <a class="btn btn-jaune" href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">Modifier</a>
+                <p>{{ projet.ordreMiniature }}</p>
             </div>
         </div>
     {% endfor %}

@@ -29,10 +29,20 @@
         <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="700">
     </div>
 
+    <div class="champ">
+        <div class="intitule">Ordre d'apparition dans le portfolio</div>
+        <p>{{ projet.getOrdreMiniature }}</p>
+    </div>
+
+
     {% if projet.imageMiseEnAvant %}
         <div class="champ">
             <div class="intitule">Image en page d'accueil</div>
             <img src="{{ asset('uploads/' ~ projet.imageMiseEnAvant) }}" alt="Image de couv" width="700">
+
+                <div class="intitule">Ordre d'apparition sur la page d'accueil</div>
+                <p>{{ projet.getOrdreMisEnAvant }}</p>
+            </div>
         </div>
     {% endif %}
 
@@ -40,6 +50,7 @@
         <div class="intitule">Images</div>
         {% for image in projet.images %}
             <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
+            <p>{{ image.ordre }}</p>
         {% else %}
             <p>Aucune image</p>
         {% endfor %}

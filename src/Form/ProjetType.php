@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints\File;
 use EmilePerron\TinymceBundle\Form\Type\TinymceType;
 
@@ -61,6 +62,10 @@ class ProjetType extends AbstractType
                 'required' => false,
                 'mapped' => false,
             ])
+            ->add('ordre_miniature', NumberType::class, [
+                'label' => 'Ordre apparition dans portfolio', 
+                'required' => false,
+            ])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'nom',
@@ -103,6 +108,10 @@ class ProjetType extends AbstractType
                         'mimeTypesMessage' => 'Seulement formats jpeg, png ou webp',
                     ]),
                 ],
+            ])
+            ->add('ordre_mis_en_avant', CheckboxType::class, [
+                'label' => 'Ordre apparition sur page accueil',
+                'required' => false,
             ])
         ;
     }
