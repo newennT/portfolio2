@@ -11,13 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let projets = gsap.utils.toArray(".projet-item");
 
-    projets.forEach((projet, index) => {
+    projets.forEach((projet) => {
         gsap.from(projet, {
             y: 150,
             opacity: 0,
             duration: 0.8,
             ease: "power2.out",
-            delay: index * 0.2,
             scrollTrigger: {
                 trigger: projet,
                 start: "top bottom",

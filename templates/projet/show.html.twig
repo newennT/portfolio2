@@ -19,7 +19,7 @@
         <p class="description">{{ projet.description|raw}}</p>
 
         <div class="images-projet">
-            {% for image in projet.images %}
+            {% for image in projet.images|sort((a, b) => a.ordre <=> b.ordre) %}
                 <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
             {% else %}
                 <p>Aucune image</p>
