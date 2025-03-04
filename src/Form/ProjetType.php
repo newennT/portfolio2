@@ -109,7 +109,7 @@ class ProjetType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('ordre_mis_en_avant', CheckboxType::class, [
+            ->add('ordre_mis_en_avant', NumberType::class, [
                 'label' => 'Ordre apparition sur page accueil',
                 'required' => false,
             ])
