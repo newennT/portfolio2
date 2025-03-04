@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `categorie`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categorie` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadescription` longtext COLLATE utf8mb4_unicode_ci,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadescription` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `doctrine_migration_versions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `version` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int DEFAULT NULL,
   PRIMARY KEY (`version`)
@@ -76,13 +76,13 @@ DROP TABLE IF EXISTS `image`;
 CREATE TABLE `image` (
   `id` int NOT NULL AUTO_INCREMENT,
   `projet_id` int DEFAULT NULL,
-  `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `texte_alt` longtext COLLATE utf8mb4_unicode_ci,
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texte_alt` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `ordre` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_C53D045FC18272` (`projet_id`),
   CONSTRAINT `FK_C53D045FC18272` FOREIGN KEY (`projet_id`) REFERENCES `projet` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `image` (
 
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES (24,19,'ogmafolk-mockupx2000largeur-67c438b52d98c.webp','Mock-up pour la charte graphique d\'OgmaFolk',1),(25,19,'ogmafolk-logo-clair-600px-67c43a42cc5d9.webp','Logo d\'OgmaFolk version claire',2),(26,19,'ogmafolk-logo-fonce-600px-67c43a53d5f79.webp','Logo d\'OgmaFolk version foncée',3),(27,20,'ya-2000ppx-67c61534c062c.webp','k',1),(28,20,'ya-2000x1600px-67c61551359fe.webp','jh',2),(29,20,'ya-extrait1-67c61565222cc.webp','m',3),(30,20,'ya-extrait2-67c6157cbcd35.webp','hhh',4);
+INSERT INTO `image` VALUES (24,19,'ogmafolk-mockupx2000largeur-67c438b52d98c.webp','Mock-up pour la charte graphique d\'OgmaFolk',1),(25,19,'ogmafolk-logo-clair-600px-67c43a42cc5d9.webp','Logo d\'OgmaFolk version claire',2),(26,19,'ogmafolk-logo-fonce-600px-67c43a53d5f79.webp','Logo d\'OgmaFolk version foncée',3),(27,20,'ya-2000ppx-67c61534c062c.webp','k',1),(28,20,'ya-2000x1600px-67c61551359fe.webp','jh',2),(29,20,'ya-extrait1-67c61565222cc.webp','m',3),(30,20,'ya-extrait2-67c6157cbcd35.webp','hhh',4),(31,21,'acr-mockup-2000px-67c6d032bdb6d.webp','m',2),(32,21,'acr-mockup-pages-2000px-67c6d04231b21.webp','m',1),(33,22,'alexisdanan-mockup-2000px-67c6daae51842.webp','m',1),(34,22,'alexisdanan-mockup-pages-2000px-67c6dacd61b2f.webp','m',2),(35,23,'dystout-mockup-2000px-67c6f56dd2348.webp','g',1),(36,23,'dystout-mockup-pages-2000px-67c6f583654ff.webp','g',2),(37,24,'lbm-mockup-2000px-67c70b53c93e2.webp','h',1),(38,24,'lbm-mockup-pages-2000px-67c70b62ee28b.webp','f',2),(39,25,'sol-mockup-2000px-67c70f15c0df8.webp','gf',1),(40,25,'sol-mockup-pages-2000px-67c70f250e069.webp','ss',2),(41,26,'bikini-couv-67c719ad916b3.webp','g',1),(42,26,'bikini-4-67c719b82ced9.webp','g',2),(43,26,'bikini-5-67c719c3c277e.webp','g',3);
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,19 +104,19 @@ DROP TABLE IF EXISTS `projet`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `projet` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cover` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_update` datetime NOT NULL,
   `est_actif` tinyint(1) NOT NULL,
   `mis_en_avant` tinyint(1) NOT NULL,
-  `metadescription` longtext COLLATE utf8mb4_unicode_ci,
-  `image_mise_en_avant` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metadescription` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `image_mise_en_avant` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ordre_miniature` int DEFAULT NULL,
   `ordre_mis_en_avant` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `projet` (
 
 LOCK TABLES `projet` WRITE;
 /*!40000 ALTER TABLE `projet` DISABLE KEYS */;
-INSERT INTO `projet` VALUES (19,'Charte graphique d\'OgmaFolk','charte-graphique-ogmafolk','<div class=\"elementor-element elementor-element-d33612a elementor-widget elementor-widget-text-editor\" data-id=\"d33612a\" data-element_type=\"widget\" data-widget_type=\"text-editor.default\">\r\n<div class=\"elementor-widget-container\">\r\n<p>OgmaFolk est un projet de cr&eacute;ation de logo et charte graphique pour une entreprise d&rsquo;architecture et de paysagisme &eacute;cologique.</p>\r\n<p>Le logo cr&eacute;&eacute; rappelle l&rsquo;importance de la connexion aux sensations et de la perception humaine dans la vision de l&rsquo;entreprise. Ainsi, la texture rappelle des &eacute;l&eacute;ments organiques et le c&ocirc;t&eacute; abstrait laisse place &agrave; l&rsquo;interpr&eacute;tation.</p>\r\n<p>OgmaFolk est un projet fictif r&eacute;alis&eacute; dans le contexte des &eacute;tudes.</p>\r\n</div>\r\n</div>','67c43849b4ef9.webp','2025-03-02 10:49:00',1,0,'Création de logo et charte graphique pour OgmaFolk, une entreprise d’architecture et de paysagisme écologique basée en Bretagne.',NULL,15,0),(20,'Illustration de couverture du numéro 1000 de \"Ya!\"','illustration-couverture-ya','<div class=\"elementor-element elementor-element-dcd16cf elementor-widget elementor-widget-text-editor\" data-id=\"dcd16cf\" data-element_type=\"widget\" data-widget_type=\"text-editor.default\">\r\n<div class=\"elementor-widget-container\">\r\n<p>Couverture r&eacute;alis&eacute;e pour le num&eacute;ro 1000 du journal &laquo;&nbsp;Ya!&nbsp;&raquo;, hebdomadaire en breton.</p>\r\n<p>L&rsquo;illustration a &eacute;t&eacute; r&eacute;alis&eacute;e sur support num&eacute;rique de format 27,5x40cm.</p>\r\n</div>\r\n</div>','67c6151660605.webp','2025-03-03 20:44:00',1,0,'Couverture du journal \"YA!\" : illustration du couverture réalisée pour le numéro 1000 du journal “Ya!”, hebdomadaire en breton',NULL,1,0);
+INSERT INTO `projet` VALUES (19,'Charte graphique d\'OgmaFolk','charte-graphique-ogmafolk','<div class=\"elementor-element elementor-element-d33612a elementor-widget elementor-widget-text-editor\" data-id=\"d33612a\" data-element_type=\"widget\" data-widget_type=\"text-editor.default\">\r\n<div class=\"elementor-widget-container\">\r\n<p>OgmaFolk est un projet de cr&eacute;ation de logo et charte graphique pour une entreprise d&rsquo;architecture et de paysagisme &eacute;cologique.</p>\r\n<p>Le logo cr&eacute;&eacute; rappelle l&rsquo;importance de la connexion aux sensations et de la perception humaine dans la vision de l&rsquo;entreprise. Ainsi, la texture rappelle des &eacute;l&eacute;ments organiques et le c&ocirc;t&eacute; abstrait laisse place &agrave; l&rsquo;interpr&eacute;tation.</p>\r\n<p>OgmaFolk est un projet fictif r&eacute;alis&eacute; dans le contexte des &eacute;tudes.</p>\r\n</div>\r\n</div>','67c43849b4ef9.webp','2025-03-02 10:49:00',1,0,'Création de logo et charte graphique pour OgmaFolk, une entreprise d’architecture et de paysagisme écologique basée en Bretagne.',NULL,15,0),(20,'Illustration de couverture du numéro 1000 de \"Ya!\"','illustration-couverture-ya','<div class=\"elementor-element elementor-element-dcd16cf elementor-widget elementor-widget-text-editor\" data-id=\"dcd16cf\" data-element_type=\"widget\" data-widget_type=\"text-editor.default\">\r\n<div class=\"elementor-widget-container\">\r\n<p>Couverture r&eacute;alis&eacute;e pour le num&eacute;ro 1000 du journal &laquo;&nbsp;Ya!&nbsp;&raquo;, hebdomadaire en breton.</p>\r\n<p>L&rsquo;illustration a &eacute;t&eacute; r&eacute;alis&eacute;e sur support num&eacute;rique de format 27,5x40cm.</p>\r\n</div>\r\n</div>','67c6151660605.webp','2025-03-03 20:44:00',1,0,'Couverture du journal \"YA!\" : illustration du couverture réalisée pour le numéro 1000 du journal “Ya!”, hebdomadaire en breton',NULL,1,0),(21,'Site web des Amis des Chemins de Ronde','webdesign-wordpress-acr35','<p>Design et int&eacute;gration Wordpress du site web des<a href=\"https://amisdescheminsderonde35.fr\" target=\"_blank\" rel=\"noopener\"> Amis des Chemins de Ronde 35</a>, r&eacute;alis&eacute; dans le cadre de mes missions avec l\'agence web <a href=\"https://solatypic.com\" target=\"_blank\" rel=\"noopener\">Solatypic</a> &agrave; Dinard. Il s\'agit d\'un site vitrine qui pr&eacute;sente l\'association, la documentation juridique et sur son histoire, ainsi qu\'un agenda de ses activit&eacute;s.</p>','67c6d01186b9f.webp','2025-03-04 09:56:00',1,0,'Design et intégration Wordpress du site web des Amis des Chemins de Ronde 35, réalisé avec l\'agence web Solatypic à Dinard.',NULL,2,0),(22,'Association Alexis Danan','webdesign-developpement-frontend-alexis-danan','<p>Dans le cadre de mes missions en tant que salari&eacute; de <a href=\"https://solatypic.com\" target=\"_blank\" rel=\"noopener\">Solatypic</a>, j\'ai r&eacute;alis&eacute; la maquette et l\'int&eacute;gration frontend du site de <a href=\"https://formation.alexisdanan.org\" target=\"_blank\" rel=\"noopener\">formation Alexis Danan</a>. Il s\'agit d\'une plateforme de e-learning d&eacute;velopp&eacute;e en PHP.&nbsp;</p>','67c6da896b4e6.webp','2025-03-04 10:43:00',1,0,'k',NULL,6,0),(23,'Site web Dys-tout','webdesign-wordpress-dystout','<p>Dans le cadre de mon emploi &agrave; <a href=\"https://solatypic.com\" target=\"_blank\" rel=\"noopener\">Solatypic</a>, j\'ai r&eacute;alis&eacute; le webdesign et l\'int&eacute;gration Wordpress du site web <a href=\"https://dys-tout.fr\" target=\"_blank\" rel=\"noopener\">Dystout</a>. Ce site met &agrave; la disposition du public de la documentation sur les troubles dys, dans le but de faciliter l\'int&eacute;gration professionnelle des personnes dys.</p>','67c6f5595537d.webp','2025-03-04 12:40:00',1,0,'Webdesign et intégration Wordpress pour l\'association Dys-Tout, basée à Pontivy et agissant dans le domaine des troubles dys',NULL,NULL,0),(24,'Site web La Boîte Miam','webdesign-wordpress-laboitemiam','<p>Dans le cadre de mon emploi &agrave; Solatypic, j\'ai r&eacute;alis&eacute; le design et l\'int&eacute;gration Wordpress du site web La Bo&icirc;te Miam. Ce site a notamment n&eacute;cessit&eacute; la r&eacute;alisation d\'une illustration interactive en Javascript.</p>','67c70b4515691.webp','2025-03-04 14:14:00',1,0,'g',NULL,10,0),(25,'Site web Solatypic','webdesign-wordpress-solatypic','<p>Dans le cadre de mes missions au sein de <a href=\"https://solatypic.com\" target=\"_blank\" rel=\"noopener\">Solatypic,</a> j\'ai r&eacute;alis&eacute; le design et l\'int&eacute;gration Wordpress du site web de l\'agence.&nbsp;</p>','67c70f00e4047.webp','2025-03-04 14:30:00',1,0,'h',NULL,4,0),(26,'Couverture de Bikini','illustration-couverture-bikini','<p>Couverture r&eacute;alis&eacute;e pour le num&eacute;ro du magazine &laquo; <a href=\"https://bikinimag.fr/?p=4299\" target=\"_blank\" rel=\"noopener\">Bikini</a> &raquo; de janvier 2023, &agrave; l&rsquo;occasion du centenaire des Seiz Breur.</p>','67c71cebad21a.webp','2025-03-04 15:09:00',1,1,'d','67c719938ee92.webp',1,1);
 /*!40000 ALTER TABLE `projet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +153,7 @@ CREATE TABLE `projet_categorie` (
 
 LOCK TABLES `projet_categorie` WRITE;
 /*!40000 ALTER TABLE `projet_categorie` DISABLE KEYS */;
-INSERT INTO `projet_categorie` VALUES (19,121),(20,1);
+INSERT INTO `projet_categorie` VALUES (19,121),(20,1),(21,120),(21,122),(22,120),(23,120),(23,122),(24,120),(24,122),(25,120),(25,121),(25,122),(26,1);
 /*!40000 ALTER TABLE `projet_categorie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,9 +166,9 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `roles` json NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_IDENTIFIER_EMAIL` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -193,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-03 20:52:36
+-- Dump completed on 2025-03-04 15:55:23
