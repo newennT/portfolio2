@@ -7,7 +7,7 @@
     
     <a class="btn btn-vert" href="{{ path('app_admin_projet_new') }}">Créer un projet</a>
 
-    {% for projet in projets %}
+    {% for projet in projets|sort((a, b) => a.ordreMiniature <=> b.ordreMiniature) %}
         <div class="projet">
             <div class="infos">
                 <div class="id-slug">

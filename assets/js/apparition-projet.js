@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             delay: index * 0.2,
             scrollTrigger: {
                 trigger: projet,
-                start: "top 95%",
+                start: "top bottom",
                 toggleActions: "play none none none",
             },
         });

@@ -92,9 +92,7 @@
         form{
             width: 95%;
         }
-        .projets{
-            grid-template-columns: repeat(1, 1fr);
-        }
+        
     }
 }
 
@@ -102,6 +100,9 @@
     .portfolio{
         h1{
             font-size: 70px;
+        }
+        .projets{
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
