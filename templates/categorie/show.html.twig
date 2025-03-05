@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ categorie.nom }}{% endblock %}
+{% block metaimage %}{{ absolute_url(asset('img/favicon-portfolio.svg')) }}{% endblock %}
+{% block metadescriptionimage %}{{ categorie.nom }} freelance Rennes{% endblock %}
 
 {% block metadescription %}{{ categorie.metadescription }}{% endblock %}
 

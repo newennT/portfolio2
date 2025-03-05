@@ -4,6 +4,9 @@
 
 {% block metadescription %}Découvrez mes réalisations dans les domaines suivants :  {% for categorie in categories %}{{ categorie.nom }}{% endfor %}{% endblock %}
 
+{% block metaimage %}{{ absolute_url(asset('img/favicon-portfolio.svg')) }}{% endblock %}
+{% block metadescriptionimage %}Webdesigner freelance Rennes{% endblock %}
+
 {% block body %}
 
 <div class="container">

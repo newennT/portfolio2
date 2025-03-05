@@ -6,6 +6,10 @@
         <title>{% block title %}{% endblock %} - Newenn Turbiau - Graphiste freelance Rennes</title>
         <meta name="description" content="{% block metadescription %}{% endblock %}">
         <link rel="icon" href="{{ asset('img/favicon-portfolio.svg') }}">
+        <meta property="og:image" content="{% block metaimage %}{% endblock %}">
+        <meta property="og:image:alt" content="{% block metadescriptionimage %}{% endblock %}">
+        <meta property="og:url" content="{{ absolute_url(app.request.uri) }}">
+        <meta property="og:type" content="website">
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
         {% endblock %}
