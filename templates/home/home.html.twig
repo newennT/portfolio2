@@ -34,7 +34,7 @@
 
                 <div class="wrapper"> 
 
-                    {% for projet in projets %}
+                    {% for projet in projets|sort((a, b) => a.getOrdreMisEnAvant <=> b.getOrdreMisEnAvant) %}
                         {% if projet.estActif == true and projet.misEnAvant == true and projet.imageMiseEnAvant %}
                             <div role="listitem" class="item">
                                 <a href="{{ path('app_projet_show', {'slug': projet.slug}) }}">
