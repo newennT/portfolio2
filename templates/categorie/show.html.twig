@@ -2,6 +2,9 @@
 
 {% block title %}{{ categorie.nom }}{% endblock %}
 
+{% block metadescription %}{{ categorie.metadescription }}{% endblock %}
+
+
 {% block body %}
 
 <div class="categorie-show">
@@ -18,7 +21,7 @@
                             <p>{{ projet.nom }}</p>
                         </div>
                         
-                        <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
+                        <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Miniature du projet {{ projet.nom }}"></td>
                     </div>
                 </a>
                 {% endif %}

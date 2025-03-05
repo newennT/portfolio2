@@ -2,6 +2,8 @@
 
 {% block title %}Catégories{% endblock %}
 
+{% block metadescription %}Découvrez mes réalisations dans les domaines suivants :  {% for categorie in categories %}{{ categorie.nom }}{% endfor %}{% endblock %}
+
 {% block body %}
 
 <div class="container">

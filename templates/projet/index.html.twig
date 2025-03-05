@@ -2,6 +2,8 @@
 
 {% block title %}Portfolio{% endblock %}
 
+{% block metadescription %}Découvrez mon portfolio graphiste : logo et charte graphique, site web, illustration et supports de communication.{% endblock %}
+
 {% block body %}
 
 <div class="portfolio">
@@ -30,7 +32,7 @@
                             <p>{{ projet.nom }}</p>
                         </div>
                         
-                        <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv"></td>
+                        <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Miniature du projet {{ projet.nom }}"></td>
                     </a>
                 </div>
                 

@@ -2,6 +2,9 @@
 
 {% block title %}{{ projet.nom }}{% endblock %}
 
+{% block metadescription %}{{ projet.metadescription }}{% endblock %}
+
+
 {% block body %}
 
 <div class="container">
@@ -20,7 +23,7 @@
 
         <div class="images-projet">
             {% for image in projet.images|sort((a, b) => a.ordre <=> b.ordre) %}
-                <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
+                <img src="{{ asset('uploads/' ~ image.path) }}" alt="{{ image.texteAlt }}">
             {% else %}
                 <p>Aucune image</p>
             {% endfor %}
