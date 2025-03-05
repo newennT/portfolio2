@@ -25,6 +25,11 @@
     </div>
 
     <div class="champ">
+        <div class="intitule">Métadescription</div>
+        <p>{{ projet.metadescription }}</p>
+    </div>
+
+    <div class="champ">
         <div class="intitule">Image miniature</div>
         <img src="{{ asset('uploads/' ~ projet.cover) }}" alt="Image de couv" width="700">
     </div>
@@ -49,20 +54,21 @@
     <div class="champ">
         <div class="intitule">Images</div>
         {% for image in projet.images %}
-            <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet">
+            <img src="{{ asset('uploads/' ~ image.path) }}" alt="Image de projet" width="700">
             <p>{{ image.ordre }}</p>
         {% else %}
             <p>Aucune image</p>
         {% endfor %}
     </div>
-</div>
-    
-
-
-
     <a class="btn btn-blanc" href="{{ path('app_admin_projet_index') }}"><< Retourner à la liste des projets</a>
 
     <a class="btn btn-jaune" href="{{ path('app_admin_projet_edit', {'id': projet.id}) }}">Modifier le projet</a>
 
     {{ include('admin/projet/_delete_form.html.twig') }}
+</div>
+    
+
+
+
+
 {% endblock %}
