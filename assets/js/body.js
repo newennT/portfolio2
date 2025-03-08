@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 let light = document.createElement("div");
 light.classList.add("light");
 document.body.prepend(light);
@@ -9,4 +11,5 @@ document.addEventListener("mousemove", (e) => {
     duration: 0.1,
     ease: "power2.out"
   });
+});
 });

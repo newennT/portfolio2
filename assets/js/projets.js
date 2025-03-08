@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const scrollSection = document.querySelectorAll(".scroll-section");
 
+  if(!scrollSection){
+    return;
+  }
+
   scrollSection.forEach((section) => {
     const wrapper = section.querySelector(".wrapper");
     const items = wrapper.querySelectorAll(".item")
@@ -11,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
   
     let direction = null;
     
-      if (section.classList.contains("vertical-section")){
-        direction = "vertical";
-      } else if (section.classList.contains("horizontal-section")){
-        direction = "horizontal";
-      }
-    
+    if (window.innerWidth <= 576) {
+      direction = "vertical";
+    } else {
+        direction = section.classList.contains("horizontal-section") ? "horizontal" : "vertical";
+    }
+      
       initScroll(section, items, direction);
     
   });
