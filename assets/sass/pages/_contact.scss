@@ -17,6 +17,7 @@
 .contact-section01{
     padding-top: 80px;
     margin-right: -100vw;
+    overflow-x: hidden;
     height: 50vh;
     .mots{
         .mot{
@@ -52,6 +53,7 @@
     width: 100%;
     margin-bottom: 100px;
     margin-left: -50%;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 1200px){
@@ -79,6 +81,7 @@
     
     .contact-separateur{
         margin-left: -25%;
+        overflow-x: hidden;
     }
 }
 
@@ -175,6 +178,7 @@
     }
     .contact-separateur{
         width: 200%;
+        overflow-x: hidden;
     }
 }
 
@@ -247,7 +251,6 @@
     .services{
         .liste-services{
             display: flex;
-            width: 400vw;
             .service{
                 width: 100vw;
                 height: 77vh;
@@ -341,6 +344,7 @@
 @media screen and (max-width: 764px){
     .contact-section03{
         .services{
+            overflow-x: hidden;
             .liste-services{
                 overflow-x: hidden;
                 .service{
