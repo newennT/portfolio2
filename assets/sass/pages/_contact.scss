@@ -40,13 +40,31 @@
     }
 }
 
+// #contact01{
+//     width: 50%;
+//     position: absolute;
+//     top: -25%;
+//     right: -20%;
+//     z-index: 10050;
+//     overflow: hidden;
+// }
+
 #contact01{
-    width: 50%;
+    width: 100%;
+    max-width: 100vw;
     position: absolute;
-    top: -25%;
-    right: -20%;
+    top: 0;
+    right: 0;
     z-index: 10050;
+    height: 400px;
+    margin-bottom: -100px;
     overflow: hidden;
+    img{
+        width: 50%;
+        position: absolute;
+        bottom: 0;
+        right: -20%;
+    }
 }
 
 .contact-separateur{
@@ -75,15 +93,19 @@
         }
     }
     
-    #contact01{
-        width: 60%;
-        top: -20%;
-        right: -20%;
-    }
-    
+  
     .contact-separateur{
         margin-left: -25%;
         overflow: hidden;
+    }
+
+    #contact01{
+        height: 300px;
+        margin-bottom: -100px;
+        img{
+            width: 50%;
+            right: -20%;
+        }
     }
 }
 
@@ -112,12 +134,12 @@
             }
         }
     }
-    
     #contact01{
-        width: 65%;
-        top: -30%;
-        right: -19%;
+        img{
+            width: 60%;
+        }
     }
+    
 }
 
 @media screen and (max-width: 764px){
@@ -138,10 +160,11 @@
         }
     }
     #contact01{
-        width: 65%;
-        top: -20%;
-        right: -15%;
+        img{
+            width: 70%;
+        }
     }
+
     .contact-separateur{
         margin-left: 0;
         overflow: hidden;
@@ -177,10 +200,14 @@
         }
     }
     #contact01{
-        width: 90%;
-        top: -15%;
-        right: -30%;
+        height: 300px;
+        margin-bottom: -150px;
+        img{
+            width: 110%;
+            right: -40%;
+        }
     }
+
     .contact-separateur{
         overflow: hidden;
         img{
@@ -239,7 +266,7 @@
     .contact-section02{
         div{
             .adresse-mail{
-                font-size: 18px;
+                font-size: 16px;
             }
         }
     }

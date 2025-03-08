@@ -68,6 +68,7 @@
     .section01{
         height: auto;
         flex-direction: column;
+        margin-bottom: 50px;
         .image{
             width: 80%;
             background-color: #424afa00;
@@ -197,6 +198,7 @@
             }
         }
     }
+    // Séparateur au-dessus des images mises en avant
     .texte{
         width: 50%;
         .separateur{
@@ -209,7 +211,7 @@
 }
 
 .wrapper{
-    height: 85vh;
+    height: 95vh;
 }
 
 .list{
@@ -226,39 +228,30 @@
         .image{
             background-color: #424afa00;
             .projets{
-                margin-top: 300px;
                 margin-left: 0%;
+                margin-top: 0;
                 .projet{
                     width: 100vw;
+                    height: 100vh;
+                    margin-bottom: 100px;
                 }
                 .voir-plus{
                     width: 100vw;
+                    height: 110vh;
                 }
             }
             }
         }
         .wrapper{
             height: 100vh;
+            overflow: hidden;
         }
         .texte{
             width: 100%;
             .separateur{
-                margin-left: -200%;
-                margin-bottom: 150px;
-                overflow: hidden;
+                display: none;
 
             }       
-    }
-}
-
-@media screen and (max-width: 576px){
-    .section02{
-        .image{
-            .projets{
-                margin-top: 200px;
-            }
-        }
-        
     }
 }
 
@@ -269,7 +262,6 @@
     position: relative;
     z-index: 10070;
     width: 53%;
-    margin-top: -100px;
     overflow: hidden;
 }
 

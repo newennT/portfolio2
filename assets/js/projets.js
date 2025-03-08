@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: section,
         pin: true,
-        start: "top 3%",
+        start: "top top",
         end: () => `+=${items.length * 100}%`,
         scrub: 1,
         invalidateOnRefresh: true,

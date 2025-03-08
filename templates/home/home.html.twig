@@ -35,7 +35,7 @@
         <div class="image">
             <div class="projets scroll-section horizontal-section">
 
-                <div class="wrapper"> 
+                <div class="wrapper">
 
                     {% for projet in projets|sort((a, b) => a.getOrdreMisEnAvant <=> b.getOrdreMisEnAvant) %}
                         {% if projet.estActif == true and projet.misEnAvant == true and projet.imageMiseEnAvant %}
