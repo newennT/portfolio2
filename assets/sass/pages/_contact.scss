@@ -342,6 +342,7 @@
     .contact-section03{
         .services{
             .liste-services{
+                overflow-x: hidden;
                 .service{
                     .texte{
                         .texte-container{
@@ -360,8 +361,8 @@
         .services{
             .liste-services{
                 flex-direction: column;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
+                overflow-x: hidden;
+                scroll-snap-type: x mandatory; 
                 .service{
                     margin-top: 100px;
                     scroll-snap-align: start;
