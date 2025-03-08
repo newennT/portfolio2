@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
     let direction = null;
     
-    if (window.innerWidth <= 576) {
-      direction = "vertical";
+    if (window.innerWidth <= 764) {
+        direction = "vertical";
     } else {
         direction = section.classList.contains("horizontal-section") ? "horizontal" : "vertical";
     }

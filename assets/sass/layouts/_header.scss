@@ -44,6 +44,7 @@ header{
         right: 0;
         background-color: $fond;
         width: 50vw;
+        max-width: 100vw;
         height: 100vh;
         transform: translateX(100%);
         transition: transform 0.5s ease-in-out, visibility 0s linear 0.5s;
@@ -129,10 +130,10 @@ header{
         }
         .menu-contenu{
             right: 0;
-            width: 75vw;
+            width: 75vw; 
+            max-width: 100vw; 
         }
     }
-
 }
 
 @media screen and (max-width: 992px){
@@ -144,6 +145,7 @@ header{
         }
         .menu-contenu{
             width: 80vw;
+            max-width: 100vw;
             ul{
                 a, li{
                     font-size: 30px;
@@ -178,7 +180,8 @@ header{
                     }
                 }
             }
-            
+            width: 80vw; 
+            max-width: 100vw;
         }
     }
 }

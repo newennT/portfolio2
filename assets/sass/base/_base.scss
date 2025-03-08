@@ -77,8 +77,6 @@ body{
     background-image: url('/img/motifs-fond.svg');
   }
 
-  @media screen and (max-width: 576px){
-    body{
-        overflow-x: hidden;
-    }
+body{
+    overflow-x: hidden;
 }
