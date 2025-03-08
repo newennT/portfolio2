@@ -7,9 +7,12 @@
 {% block metadescriptionimage %}Demander un devis graphiste Rennes{% endblock %}
 
 {% block body %}
-<div class="container">
     <h1 class="contact-h1">Me contacter</h1>
-    {% include 'partials/contact01.html.twig' %}
+
+    <div id="contact01">
+        <img src="{{ asset('img/contact01.svg')}}" alt="">
+    </div>
+
     <div class="contact-section01">
         <div class="mots">
             {# Mots qui défilent en scroll horizontal #}
@@ -19,7 +22,7 @@
             <p id="mot04" class="mot">Conception de <span>site web</span></p>
         </div>
     </div>
-</div>
+
 
 <div class="contact-separateur">
     <img src="{{ asset('img/separateur.svg')}}" alt="">
@@ -45,7 +48,7 @@
                         <h3>Identité visuelle</h3>
                         <p>Le logotype est un élément indispensable lors de la création de votre activité.</p>
                         <p>Souvent accompagné d’une charte graphique, il permet d’identifier votre domaine d’activité du premier coup d’oeil et de communiquer vos valeurs.</p>
-                        <p>Décliné sur différents supports, il doit aussi répondre à un certain nombre de critères techniques pour être exploitable.</p>
+                            <p>Décliné sur différents supports, il doit aussi répondre à un certain nombre de critères techniques pour être exploitable.</p>
                     </div>
                 </div>
                 <div class="image">
